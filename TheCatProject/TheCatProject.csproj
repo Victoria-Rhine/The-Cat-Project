@@ -127,6 +127,14 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\CatDB.mdf" />
+    <Content Include="App_Data\CatDB_log.ldf">
+      <DependentUpon>CatDB.mdf</DependentUpon>
+    </Content>
+    <Content Include="App_Data\down.sql" />
+    <Content Include="App_Data\queries.sql" />
+    <Content Include="App_Data\seed.sql" />
+    <Content Include="App_Data\up.sql" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -164,7 +172,6 @@
     <Content Include="Views\Home\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
