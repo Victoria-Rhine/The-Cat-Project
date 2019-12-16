@@ -128,7 +128,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\CatsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -147,6 +147,7 @@
       <DependentUpon>CatDB.mdf</DependentUpon>
     </Content>
     <Content Include="App_Data\down.sql" />
+    <Content Include="App_Data\queries.sql" />
     <Content Include="App_Data\seed.sql" />
     <Content Include="App_Data\up.sql" />
     <Content Include="Content\bootstrap-theme.css" />
@@ -181,7 +182,10 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Cats\Create.cshtml" />
+    <Content Include="Views\Cats\Delete.cshtml" />
+    <Content Include="Views\Cats\Details.cshtml" />
+    <Content Include="Views\Cats\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
