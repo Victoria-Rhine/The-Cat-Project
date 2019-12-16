@@ -1,1 +1,34 @@
-﻿
+﻿CREATE TABLE [dbo].[Cats]
+(
+	[ID]			INT IDENTITY(1,1)	NOT NULL,
+	[Name]			NVARCHAR(50)		NOT NULL,
+	[Age]			FLOAT(50)			NOT NULL,
+	CONSTRAINT [PK_dbo.Cats] PRIMARY KEY CLUSTERED ([ID] ASC)
+);
+
+CREATE TABLE [dbo].[Personalities]
+(
+	[ID]			INT IDENTITY(1,1)	NOT NULL,
+	[Type]			NVARCHAR(50)		NOT NULL,	
+	CONSTRAINT [PK_dbo.Personalities] PRIMARY KEY CLUSTERED ([ID] ASC)
+);
+
+CREATE TABLE [dbo].[Traits]
+(
+	[ID]			INT IDENTITY(1,1)	NOT NULL,
+	[Color]			NVARCHAR(50)		NOT NULL,
+	[Breed]			NVARCHAR(50)		NOT NULL,
+	[CID]			INT					NOT NULL,
+	CONSTRAINT [PK_dbo.Traits] PRIMARY KEY CLUSTERED ([ID] ASC),
+	CONSTRAINT [FK_dbo.Traits_Cats_ID] FOREIGN KEY ([CID]) REFERENCES [dbo].[Cats] ([ID]),	
+);
+
+CREATE TABLE [dbo].[PTags]
+(
+	[ID]			INT IDENTITY(1,1)	NOT NULL,
+	[CID]			INT					NOT NULL,
+	[PID]			INT					NOT NULL,	
+	CONSTRAINT [PK_dbo.PTags] PRIMARY KEY CLUSTERED ([ID] ASC),
+	CONSTRAINT [FK_dbo.PTags_Cats_ID2] FOREIGN KEY ([CID]) REFERENCES [dbo].[Cats] ([ID]),
+	CONSTRAINT [FK_dbo.PTags_Personalities_ID] FOREIGN KEY ([PID]) REFERENCES [dbo].[Personalities] ([ID])	
+);
