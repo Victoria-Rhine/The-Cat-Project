@@ -19,6 +19,10 @@ namespace TheCatProject.Models
 
         public double Age { get; set; }
 
+        [Required]
+        [StringLength(50)]
+        public string Sex { get; set; }
+
         public virtual ICollection<PTag> PTags { get; set; }
 
         public virtual ICollection<Trait> Traits { get; set; }
