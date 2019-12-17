@@ -65,33 +65,6 @@ namespace TheCatProject.Controllers
             }
             return RedirectToAction("Details", cat);
         }
-
-        // GET: Cats/Delete/5
-        public ActionResult Delete(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Cat cat = db.Cats.Find(id);
-            if (cat == null)
-            {
-                return HttpNotFound();
-            }
-            return View(cat);
-        }
-
-        // POST: Cats/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
-        {
-            Cat cat = db.Cats.Find(id);
-            db.Cats.Remove(cat);
-            db.SaveChanges();
-            return RedirectToAction("Create");
-        }
-
         protected override void Dispose(bool disposing)
         {
             if (disposing)

@@ -9,6 +9,26 @@ body {
     background-color: teal;
 }
 
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
 div {
     text-align: center;
 }
@@ -17,7 +37,7 @@ div {
     color: darkslategrey;
     font-weight: bold;
     font-size: 35px;
-    margin-bottom: auto;
+    padding-bottom: 10px;
     text-shadow: 1px 1px #ffec64;
 }
 
@@ -78,29 +98,34 @@ a:active {
         top: 1px;
     }
 
-
-
-/* Set padding to keep content from hitting the edges */
-.body-content {
-    padding-left: 15px;
-    padding-right: 15px;
-}
-
-/* Override the default bootstrap behavior where horizontal description lists 
-   will truncate terms that are too long to fit in the left column 
-*/
-.dl-horizontal dt {
-    white-space: normal;
-}
-
-/* Set width on the form input elements since they're 100% wide by default */
-input,
-select,
-textarea {
-    max-width: 280px;
-}
-
 .boxes {
     background-color: darkslategray;
     margin-top: 10px;
+}
+
+table {
+    width: 70%;
+}
+
+table, th, td {
+    border: 3px teal;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 5px;
+    text-align: left;
+}
+
+table#t01 tr:nth-child(even) {
+    background-color: #d16500
+}
+
+table#t01 tr:nth-child(odd) {
+    background-color: #a08a1c;
+}
+
+table#t01 th {
+    background-color: #d16500;
+    color: white;
 }
