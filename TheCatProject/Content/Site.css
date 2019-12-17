@@ -30,6 +30,26 @@ div {
     
 }
 
+/* unvisited link */
+a:link {
+    color: #ffec64;
+}
+
+/* visited link */
+a:visited {
+    color: azure;
+}
+
+/* mouse over link */
+a:hover {
+    color: darkslategray;
+}
+
+/* selected link */
+a:active {
+    color: #ffec64;
+}
+
 .myButton {
     box-shadow: inset 0px 1px 0px 0px #fff6af;
     background: linear-gradient(to bottom, #ffec64 5%, #ffab23 100%);

@@ -4,10 +4,10 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<h3>Kitty Kat Info</h3>
 
 <div>
-    <h4>Cat</h4>
+    <h4>Please review your entry</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -24,12 +24,13 @@
 
         <dd>
             @Html.DisplayFor(model => model.Age)
-        </dd>
-
+        </dd> 
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ID })
-    @Html.ActionLink("Delete", "Delete", new { id = Model.ID })
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("change details", "Edit", new { id = Model.ID, @class = "myButton" })
+    <br />
+    @Html.ActionLink("delete this", "Delete", new { id = Model.ID, @class = "myButton" })
+    <br />
+    @Html.ActionLink("all done", "Create")
 </p>
