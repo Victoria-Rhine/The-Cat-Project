@@ -5,7 +5,7 @@
 }
 
 <div class="jumbotron">
-    <h3>The Cat Project</h3>
+    <h3 class="homeTitle">The Cat Project</h3>
 </div>
 
 <div class="row">
@@ -24,7 +24,7 @@
             @Html.TextBoxFor(model => model.Age, new { @class = "boxes", type = "number", min = "0", step = "0.1" })
             @Html.ValidationMessageFor(model => model.Age, "", new { @class = "text-danger" })
             <br />
-            <input type="submit" value="Create" class="btn btn-default" />
+            <input type="submit" value="Create" class="myButton" />
         }
     </div>
     <div class="col-md-3"></div>
