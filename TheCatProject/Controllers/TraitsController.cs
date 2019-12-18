@@ -3,6 +3,7 @@ using System.Net;
 using System.Web.Mvc;
 using TheCatProject.DAL;
 using TheCatProject.Models;
+using System.Linq;
 
 namespace TheCatProject.Controllers
 {
@@ -11,17 +12,8 @@ namespace TheCatProject.Controllers
         private CatsContext db = new CatsContext();
 
         // GET: Traits/Details/5
-        public ActionResult Details(int? id)
+        public ActionResult Details(Trait trait)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Trait trait = db.Traits.Find(id);
-            if (trait == null)
-            {
-                return HttpNotFound();
-            }
             return View(trait);
         }
 
@@ -29,20 +21,13 @@ namespace TheCatProject.Controllers
 
         public ActionResult Create(int myID)
         {
-            int testing = myID;
+            var cat = (from a in db.Cats where a.ID == myID select new { a.Name, a.ID }).ToList();
 
             ViewBag.BreedID = new SelectList(db.Breeds, "ID", "CatBreed");
-            ViewBag.CatID = new SelectList(db.Cats, "ID", "Name");
+            ViewBag.CatID = new SelectList(cat, "ID", "Name");
             ViewBag.ColorID = new SelectList(db.Colors, "ID", "CatColor");
             return View();
         }
-       /* public ActionResult Create()
-        {
-            ViewBag.BreedID = new SelectList(db.Breeds, "ID", "CatBreed");
-            ViewBag.CatID = new SelectList(db.Cats, "ID", "Name");
-            ViewBag.ColorID = new SelectList(db.Colors, "ID", "CatColor");
-            return View();
-        }*/
 
         // POST: Traits/Create
         [HttpPost]
@@ -53,13 +38,12 @@ namespace TheCatProject.Controllers
             {
                 db.Traits.Add(trait);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                ViewBag.BreedID = new SelectList(db.Breeds, "ID", "CatBreed", trait.BreedID);
+                ViewBag.CatID = new SelectList(db.Cats, "ID", "Name", trait.CatID);
+                ViewBag.ColorID = new SelectList(db.Colors, "ID", "CatColor", trait.ColorID);
             }
-
-            ViewBag.BreedID = new SelectList(db.Breeds, "ID", "CatBreed", trait.BreedID);
-            ViewBag.CatID = new SelectList(db.Cats, "ID", "Name", trait.CatID);
-            ViewBag.ColorID = new SelectList(db.Colors, "ID", "CatColor", trait.ColorID);
-            return View(trait);
+        
+            return RedirectToAction("Details", trait);
         }
 
         // GET: Traits/Edit/5
@@ -89,38 +73,11 @@ namespace TheCatProject.Controllers
             {
                 db.Entry(trait).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
             }
             ViewBag.BreedID = new SelectList(db.Breeds, "ID", "CatBreed", trait.BreedID);
             ViewBag.CatID = new SelectList(db.Cats, "ID", "Name", trait.CatID);
             ViewBag.ColorID = new SelectList(db.Colors, "ID", "CatColor", trait.ColorID);
             return View(trait);
-        }
-
-        // GET: Traits/Delete/5
-        public ActionResult Delete(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Trait trait = db.Traits.Find(id);
-            if (trait == null)
-            {
-                return HttpNotFound();
-            }
-            return View(trait);
-        }
-
-        // POST: Traits/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
-        {
-            Trait trait = db.Traits.Find(id);
-            db.Traits.Remove(trait);
-            db.SaveChanges();
-            return RedirectToAction("Index");
         }
 
         protected override void Dispose(bool disposing)

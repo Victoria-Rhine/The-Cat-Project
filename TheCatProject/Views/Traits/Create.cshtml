@@ -13,7 +13,7 @@
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-12"> 
             @Html.DropDownList("CatID", null, htmlAttributes: new { @class = "boxes" })
             @Html.ValidationMessageFor(model => model.CatID, "", new { @class = "text-danger" })
         </div>
@@ -35,7 +35,6 @@
             <input type="submit" value="Add my Cat Traits!" class="myButton" />
         </div>
     </div>
-
 }
 
 
