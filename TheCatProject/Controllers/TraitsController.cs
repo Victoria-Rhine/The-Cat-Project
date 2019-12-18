@@ -22,6 +22,8 @@ namespace TheCatProject.Controllers
                 .Select(m => new TraitDetailsView { CatID = m.ctb.ct.c.ID, CatName = m.ctb.ct.c.Name,
                 BreedID = m.ctb.b.ID, CatBreed = m.ctb.b.CatBreed, ColorID = m.clr.ID, CatColor = m.clr.CatColor }).ToList();
 
+            ViewBag.CatID = trait.ID;
+
             return View(catModel);
         }
 
@@ -85,7 +87,7 @@ namespace TheCatProject.Controllers
             ViewBag.BreedID = new SelectList(db.Breeds, "ID", "CatBreed", trait.BreedID);
             ViewBag.CatID = new SelectList(db.Cats, "ID", "Name", trait.CatID);
             ViewBag.ColorID = new SelectList(db.Colors, "ID", "CatColor", trait.ColorID);
-            return View(trait);
+            return RedirectToAction("Details", trait);
         }
 
         protected override void Dispose(bool disposing)
