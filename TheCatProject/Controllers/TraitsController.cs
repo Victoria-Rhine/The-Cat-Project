@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
-using System.Linq;
+﻿using System.Data.Entity;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
 using TheCatProject.DAL;
 using TheCatProject.Models;
@@ -14,13 +9,6 @@ namespace TheCatProject.Controllers
     public class TraitsController : Controller
     {
         private CatsContext db = new CatsContext();
-
-        // GET: Traits
-        public ActionResult Index()
-        {
-            var traits = db.Traits.Include(t => t.Breed).Include(t => t.Cat).Include(t => t.Color);
-            return View(traits.ToList());
-        }
 
         // GET: Traits/Details/5
         public ActionResult Details(int? id)
@@ -38,17 +26,25 @@ namespace TheCatProject.Controllers
         }
 
         // GET: Traits/Create
-        public ActionResult Create()
+
+        public ActionResult Create(int myID)
         {
+            int testing = myID;
+
             ViewBag.BreedID = new SelectList(db.Breeds, "ID", "CatBreed");
             ViewBag.CatID = new SelectList(db.Cats, "ID", "Name");
             ViewBag.ColorID = new SelectList(db.Colors, "ID", "CatColor");
             return View();
         }
+       /* public ActionResult Create()
+        {
+            ViewBag.BreedID = new SelectList(db.Breeds, "ID", "CatBreed");
+            ViewBag.CatID = new SelectList(db.Cats, "ID", "Name");
+            ViewBag.ColorID = new SelectList(db.Colors, "ID", "CatColor");
+            return View();
+        }*/
 
         // POST: Traits/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "ID,CatID,ColorID,BreedID")] Trait trait)
@@ -85,8 +81,6 @@ namespace TheCatProject.Controllers
         }
 
         // POST: Traits/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "ID,CatID,ColorID,BreedID")] Trait trait)

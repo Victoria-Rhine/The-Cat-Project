@@ -188,10 +188,8 @@
     <Content Include="Views\Cats\Details.cshtml" />
     <Content Include="Views\Cats\Edit.cshtml" />
     <Content Include="Views\Traits\Create.cshtml" />
-    <Content Include="Views\Traits\Delete.cshtml" />
     <Content Include="Views\Traits\Details.cshtml" />
     <Content Include="Views\Traits\Edit.cshtml" />
-    <Content Include="Views\Traits\Index.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
