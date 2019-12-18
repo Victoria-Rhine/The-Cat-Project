@@ -1,42 +1,48 @@
-﻿@model TheCatProject.Models.Cat
+﻿@model  TheCatProject.Models.Cat
 
 @{
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<h3>Kitty Kat Info</h3>
+<h4>Make sure all is correct before continuing!</h4>
 
-<div>
-    <h4>Cat</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Age)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Age)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Sex)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Sex)
-        </dd>
-
-    </dl>
+<div class="row">
+    <div class="col-md-4">
+        <button onclick="myDetailsFunction()" class="myButton">What is this page?</button>
+        <p id="details"></p>
+    </div>
+    <div class="col-md-4">
+        <table class="table" id="t01">
+            <tr>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Sex</th>
+            </tr>
+            <tr>
+                <td>
+                    @Html.DisplayFor(model => model.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.Age)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.Sex)
+                </td>
+            </tr>
+        </table>
+        <img src="https://www.pinclipart.com/picdir/big/490-4902220_permalink-to-99-awesome-black-cat-png-ideas.png" class="img-fluid" width="350" height="241" />
+    </div>
+    <div class="col-md-4">
+        <h4>@Html.ActionLink("change details", "Edit", new { id = Model.ID })</h4>
+        <br />
+        <h4>@Html.ActionLink("all done", "Create")</h4>
+        <br />
+        <h4>@Html.ActionLink("continue", "Create", "Traits", new { id = Model.ID }, null)</h4>
+    </div>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+
+@section scripts
+{
+    <script src="~/Scripts/main.js"></script>
+}

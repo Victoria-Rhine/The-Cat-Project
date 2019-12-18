@@ -184,10 +184,8 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Cats\Create.cshtml" />
-    <Content Include="Views\Cats\Delete.cshtml" />
     <Content Include="Views\Cats\Details.cshtml" />
     <Content Include="Views\Cats\Edit.cshtml" />
-    <Content Include="Views\Cats\Index.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
