@@ -129,6 +129,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\CatsController.cs" />
+    <Compile Include="Controllers\PTagsController.cs" />
     <Compile Include="Controllers\TraitsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -140,6 +141,7 @@
     <Compile Include="Models\Personality.cs" />
     <Compile Include="Models\PTag.cs" />
     <Compile Include="Models\Trait.cs" />
+    <Compile Include="Models\ViewModels\TraitDetailsView.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -190,6 +192,11 @@
     <Content Include="Views\Traits\Create.cshtml" />
     <Content Include="Views\Traits\Details.cshtml" />
     <Content Include="Views\Traits\Edit.cshtml" />
+    <Content Include="Views\PTags\Create.cshtml" />
+    <Content Include="Views\PTags\Delete.cshtml" />
+    <Content Include="Views\PTags\Details.cshtml" />
+    <Content Include="Views\PTags\Edit.cshtml" />
+    <Content Include="Views\PTags\Index.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

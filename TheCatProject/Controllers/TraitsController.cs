@@ -14,6 +14,7 @@ namespace TheCatProject.Controllers
         // GET: Traits/Details/5
         public ActionResult Details(Trait trait)
         {
+            
             return View(trait);
         }
 
