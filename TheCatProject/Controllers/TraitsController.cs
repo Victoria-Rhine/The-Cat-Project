@@ -4,6 +4,7 @@ using System.Web.Mvc;
 using TheCatProject.DAL;
 using TheCatProject.Models;
 using System.Linq;
+using TheCatProject.Models.ViewModels;
 
 namespace TheCatProject.Controllers
 {
@@ -14,8 +15,14 @@ namespace TheCatProject.Controllers
         // GET: Traits/Details/5
         public ActionResult Details(Trait trait)
         {
-            
-            return View(trait);
+            var catModel = db.Cats.Join(db.Traits.Where(t => t.CatID == trait.CatID),
+                c => c.ID, t => t.CatID, (c, t) => new { c, t }).Join(db.Breeds,
+                ct => ct.t.BreedID, b => b.ID, (ct, b) => new { ct, b }).Join(db.Colors,
+                ctb => ctb.ct.t.ColorID, clr => clr.ID, (ctb, clr) => new { ctb, clr })
+                .Select(m => new TraitDetailsView { CatID = m.ctb.ct.c.ID, CatName = m.ctb.ct.c.Name,
+                BreedID = m.ctb.b.ID, CatBreed = m.ctb.b.CatBreed, ColorID = m.clr.ID, CatColor = m.clr.CatColor }).ToList();
+
+            return View(catModel);
         }
 
         // GET: Traits/Create

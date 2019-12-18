@@ -1,4 +1,4 @@
-﻿@model TheCatProject.Models.Trait
+﻿@model IEnumerable<TheCatProject.Models.ViewModels.TraitDetailsView>
 
 @{
     ViewBag.Title = "Details";
@@ -21,26 +21,31 @@
                 <th>Breed</th>
             </tr>
             <tr>
+                @foreach (var item in Model)
+                {                   
                 <td>
-                    @Html.DisplayNameFor(model => model.CatID)
+                    @item.CatName
                 </td>
                 <td>
-                    @Html.DisplayFor(model => model.ColorID)
+                    @item.CatColor
                 </td>
                 <td>
-                    @Html.DisplayFor(model => model.BreedID)
-                </td>
+                    @item.CatBreed
+                </td>               
+                }
             </tr>
         </table>
         <img src="https://www.pinclipart.com/picdir/big/490-4902220_permalink-to-99-awesome-black-cat-png-ideas.png" class="img-fluid" width="350" height="241" />
     </div>
-    <div class="col-md-4">
-        <h4>@Html.ActionLink("change details", "Edit", new { id = Model.ID })</h4>
-        <br />
-        <h4>@Html.ActionLink("all done", "Create")</h4>
-        <br />
-        <h4>@Html.ActionLink("continue", "Create", "Traits", new { myID = Model.ID }, htmlAttributes: null)</h4>
-    </div>
+    @*
+        <div class="col-md-4">
+            <h4>@Html.ActionLink("change details", "Edit", new { id = Model.ID })</h4>
+            <br />
+            <h4>@Html.ActionLink("all done", "Create")</h4>
+            <br />
+            <h4>@Html.ActionLink("continue", "Create", "Traits", new { myID = Model.ID }, htmlAttributes: null)</h4>
+        </div>
+    *@
 </div>
 
 @section scripts
