@@ -5,6 +5,7 @@ using System.Net;
 using System.Web.Mvc;
 using TheCatProject.DAL;
 using TheCatProject.Models;
+using TheCatProject.Models.ViewModels;
 
 namespace TheCatProject.Controllers
 {
@@ -12,26 +13,18 @@ namespace TheCatProject.Controllers
     {
         private CatsContext db = new CatsContext();
 
-        // GET: PTags
-        public ActionResult Index()
-        {
-            var pTags = db.PTags.Include(p => p.Cat).Include(p => p.Personality);
-            return View(pTags.ToList());
-        }
-
         // GET: PTags/Details/5
-        public ActionResult Details(int? id)
+        public ActionResult Details(PTag ptag)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            PTag pTag = db.PTags.Find(id);
-            if (pTag == null)
-            {
-                return HttpNotFound();
-            }
-            return View(pTag);
+            // do some query to join Cats, PTag, Personality Tables
+
+            var personalityModel = db.Cats.Join(db.PTags.Where(p => p.CID == ptag.CID),
+                c => c.ID, pt => pt.CID, (c, pt) => new { c, pt }).Join(db.Personalities,
+                cpt => cpt.pt.PID, p => p.ID, (cpt, p) => new { cpt, p })
+                .Select(m => new PersonalityDetailsView { CatID = m.cpt.c.ID, CatName = m.cpt.c.Name, 
+                pTagID = m.cpt.pt.ID, PersonalityID = m.p.ID, PersonalityType = m.p.Type }).ToList();
+
+            return View();
         }
 
         // GET: PTags/Create
@@ -53,12 +46,13 @@ namespace TheCatProject.Controllers
             {
                 db.PTags.Add(pTag);
                 db.SaveChanges();
-                return RedirectToAction("Index");
             }
 
             ViewBag.CID = new SelectList(db.Cats, "ID", "Name", pTag.CID);
             ViewBag.PID = new SelectList(db.Personalities, "ID", "Type", pTag.PID);
-            return View(pTag);
+
+            // redirect to details page for user confirmation or edits
+            return RedirectToAction("Details", pTag);
         }
 
         // GET: PTags/Edit/5
@@ -93,7 +87,6 @@ namespace TheCatProject.Controllers
             ViewBag.PID = new SelectList(db.Personalities, "ID", "Type", pTag.PID);
             return View(pTag);
         }
-
         protected override void Dispose(bool disposing)
         {
             if (disposing)

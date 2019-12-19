@@ -141,6 +141,7 @@
     <Compile Include="Models\Personality.cs" />
     <Compile Include="Models\PTag.cs" />
     <Compile Include="Models\Trait.cs" />
+    <Compile Include="Models\ViewModels\PersonalityDetailsView.cs" />
     <Compile Include="Models\ViewModels\TraitDetailsView.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
