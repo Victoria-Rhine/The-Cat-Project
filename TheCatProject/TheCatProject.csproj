@@ -198,6 +198,8 @@
     <Content Include="Views\PTags\Details.cshtml" />
     <Content Include="Views\PTags\Edit.cshtml" />
     <Content Include="Views\Misc\BreedInfo.cshtml" />
+    <Content Include="Views\Misc\PatternInfo.cshtml" />
+    <Content Include="Views\Misc\About.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

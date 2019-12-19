@@ -14,9 +14,21 @@ namespace TheCatProject.Controllers
             return View();
         }
 
+        public ActionResult About()
+        {
+            return View();
+        }
+
         public ActionResult BreedInfo()
         {
             return View();
         }
+
+        public ActionResult PatternInfo()
+        {
+            return View();
+        }
+
+
     }
 }
