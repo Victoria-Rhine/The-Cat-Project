@@ -1,34 +1,58 @@
-﻿@model TheCatProject.Models.PTag
+﻿@model IEnumerable<TheCatProject.Models.ViewModels.PersonalityDetailsView>
 
 @{
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<h4>TEST THIS STUFF</h4>
 
-<div>
-    <h4>PTag</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Cat.Name)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Cat.Name)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Personality.Type)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Personality.Type)
-        </dd>
-
-    </dl>
-</div>
-<p>
+@*
     @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
     @Html.ActionLink("Back to List", "Index")
-</p>
+*@
+
+
+<h3>Kitty Kat Info</h3>
+<h4>Make sure all is correct before continuing!</h4>
+
+<div class="row">
+    <div class="col-md-4">
+        <button onclick="myDetailsFunction()" class="myButton">What is this page?</button>
+        <p id="details"></p>
+    </div>
+    <div class="col-md-4">
+        <table class="table" id="t01">
+            <tr>
+                <th>Name</th>
+                <th>Personality</th>
+            </tr>
+            <tr>
+                @foreach (var item in Model)
+                {
+                <td>
+                    @item.CatName
+                </td>
+                <td>
+                    @item.PersonalityType
+                </td>
+                }
+            </tr>
+        </table>
+        <img src="https://www.pinclipart.com/picdir/big/490-4902220_permalink-to-99-awesome-black-cat-png-ideas.png" class="img-fluid" width="350" height="241" />
+    </div>
+@* 
+    <div class="col-md-4">
+        <h4>@Html.ActionLink("change details", "Edit", new { id = @ViewBag.CatID })</h4>
+        <br />
+        <h4>@Html.ActionLink("all done", "Create", "Cats", null, htmlAttributes: null)</h4>
+        <br />
+        <h4><h4>@Html.ActionLink("continue", "Create", "PTags", new { myID = @ViewBag.CatID }, htmlAttributes: null)</h4></h4>
+    </div>
+*@
+</div>
+
+@section scripts
+{
+    <script src="~/Scripts/main.js"></script>
+}
+

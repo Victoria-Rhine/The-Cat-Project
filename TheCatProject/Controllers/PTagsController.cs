@@ -17,14 +17,13 @@ namespace TheCatProject.Controllers
         public ActionResult Details(PTag ptag)
         {
             // do some query to join Cats, PTag, Personality Tables
-
             var personalityModel = db.Cats.Join(db.PTags.Where(p => p.CID == ptag.CID),
                 c => c.ID, pt => pt.CID, (c, pt) => new { c, pt }).Join(db.Personalities,
                 cpt => cpt.pt.PID, p => p.ID, (cpt, p) => new { cpt, p })
                 .Select(m => new PersonalityDetailsView { CatID = m.cpt.c.ID, CatName = m.cpt.c.Name, 
                 pTagID = m.cpt.pt.ID, PersonalityID = m.p.ID, PersonalityType = m.p.Type }).ToList();
 
-            return View();
+            return View(personalityModel);
         }
 
         // GET: PTags/Create
