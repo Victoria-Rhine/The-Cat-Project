@@ -38,16 +38,16 @@ namespace TheCatProject.Controllers
         }
 
         // GET: PTags/Create
-        public ActionResult Create()
+        public ActionResult Create(int myID)
         {
-            ViewBag.CID = new SelectList(db.Cats, "ID", "Name");
+            var cat = (from a in db.Cats where a.ID == myID select new { a.Name, a.ID }).ToList();
+
+            ViewBag.CID = new SelectList(cat, "ID", "Name");
             ViewBag.PID = new SelectList(db.Personalities, "ID", "Type");
             return View();
         }
 
         // POST: PTags/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "ID,CID,PID")] PTag pTag)
@@ -82,8 +82,6 @@ namespace TheCatProject.Controllers
         }
 
         // POST: PTags/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "ID,CID,PID")] PTag pTag)
@@ -97,32 +95,6 @@ namespace TheCatProject.Controllers
             ViewBag.CID = new SelectList(db.Cats, "ID", "Name", pTag.CID);
             ViewBag.PID = new SelectList(db.Personalities, "ID", "Type", pTag.PID);
             return View(pTag);
-        }
-
-        // GET: PTags/Delete/5
-        public ActionResult Delete(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            PTag pTag = db.PTags.Find(id);
-            if (pTag == null)
-            {
-                return HttpNotFound();
-            }
-            return View(pTag);
-        }
-
-        // POST: PTags/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
-        {
-            PTag pTag = db.PTags.Find(id);
-            db.PTags.Remove(pTag);
-            db.SaveChanges();
-            return RedirectToAction("Index");
         }
 
         protected override void Dispose(bool disposing)

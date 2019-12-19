@@ -193,10 +193,8 @@
     <Content Include="Views\Traits\Details.cshtml" />
     <Content Include="Views\Traits\Edit.cshtml" />
     <Content Include="Views\PTags\Create.cshtml" />
-    <Content Include="Views\PTags\Delete.cshtml" />
     <Content Include="Views\PTags\Details.cshtml" />
     <Content Include="Views\PTags\Edit.cshtml" />
-    <Content Include="Views\PTags\Index.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
