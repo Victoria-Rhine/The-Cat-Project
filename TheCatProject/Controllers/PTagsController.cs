@@ -23,7 +23,7 @@ namespace TheCatProject.Controllers
                 .Select(m => new PersonalityDetailsView { CatID = m.cpt.c.ID, CatName = m.cpt.c.Name, 
                 pTagID = m.cpt.pt.ID, PersonalityID = m.p.ID, PersonalityType = m.p.Type }).ToList();
 
-            // i think....
+            ViewBag.CatID = ptag.CID;
             ViewBag.TraitID = ptag.ID;
 
             return View(personalityModel);
