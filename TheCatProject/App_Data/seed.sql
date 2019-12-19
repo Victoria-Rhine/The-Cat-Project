@@ -9,16 +9,32 @@
 
 INSERT INTO [dbo].[Breeds](CatBreed)
 	VALUES
-	('Tabby'),
+	('Bengal'),
+	('British Shorthair'),
+	('Persion'),
 	('Maine Coon'),
+	('Munchkin'),
+	('Ragdoll'),
+	('Russian Blue'),
+	('Savannah'),
+	('Scottish Fold'),
+	('Siamese'),
+	('Siberian'),
+	('Sphinx'),
 	('Unknown');
 
 INSERT INTO [dbo].[Personalities](Type)
 	VALUES
-	('Feisty'),
+	('Active'),
 	('Cuddly'),
-	('Anti-Social'),
-	('Clingy'),
-	('Independent'),
-	('Timid');
+	('Extremely Loyal'),
+	('Fears New People'),
+	('Intelligent'),
+	('Lap Cat'),
+	('Likes New People'),
+	('Outgoing'),
+	('Quiet'),
+	('Skittish'),
+	('Vocal');
+	
 
