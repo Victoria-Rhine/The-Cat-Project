@@ -33,6 +33,14 @@ namespace TheCatProject.Controllers
         {
             var cat = (from a in db.Cats where a.ID == myID select new { a.Name, a.ID }).ToList();
 
+            // something like this?
+            // var athleteName = (from a in db.Athletes where a.ID == result.AID select a.Name).FirstOrDefault();
+
+            var selectedCat = (from c in db.Cats where c.ID == myID select c.ID).FirstOrDefault();
+            var selectedCatName = (from c in db.Cats where c.ID == myID select c.Name).FirstOrDefault();
+            ViewBag.CatTraitID = selectedCat;
+            ViewBag.CatName = selectedCatName;
+
             ViewBag.BreedID = new SelectList(db.Breeds, "ID", "CatBreed");
             ViewBag.CatID = new SelectList(cat, "ID", "Name");
             ViewBag.ColorID = new SelectList(db.Colors, "ID", "CatColor");

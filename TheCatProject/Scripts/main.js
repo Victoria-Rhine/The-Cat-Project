@@ -1,75 +1,7 @@
-﻿function myDetailsFunction() {
+﻿function pageDetails() {
     document.getElementById("details").innerHTML =
-    "<br />" +
-
-    "This is where we see if things are right! =) " + "<br />"
-
-    + "<br />" + 
-
-    "Note that choosing 'all done' with require" + "<br />" +
-    "restarting the process if you come back." + "<br />" +
-    "No big deal though!";
+    "<br />" + "Edit cat details" + "<br />" +
+    "Continue to add traits" + "<br />" +
+    "All done to quit process"
 }
-
-function BreedsFunction() {
-    document.getElementById("breeds").innerHTML =
-        "list item" + "list item" + "<br />" +
-        "list item" + "<br />" +
-        "list item" + "<br />" +
-        "list item" + "<br />" +
-        "list item" + "<br />" +
-        "list item" + "<br />" +
-        "list item" + "<br />" +
-        "list item" + "<br />" +
-        "list item" + "<br />" +
-        "list item" + "<br />" +
-        "list item" + "<br />" +
-        "list item" + "<br />" +
-        "list item" + "<br />" +
-        "list item" + "<br />" +
-        "list item" + "<br />" +
-        "list item" + "<br />" +
-        "list item" + "<br />" +
-        "list item" + "<br />" +
-        "list item" + "<br />" +
-        "list item" + "<br />" +
-        "list item" + "<br />" +
-        "list item" + "<br />" +
-        "list item" + "<br />" +
-        "list item" + "<br />" +
-        "list item" + "<br />" +
-        "list item";
-}
-
-function ColorsFunction() {
-    document.getElementById("colors").innerHTML =
-        "list item" + "<br />" +
-        "list item" + "<br />" +
-        "list item" + "<br />" +
-        "list item" + "<br />" +
-        "list item" + "<br />" +
-        "list item" + "<br />" +
-        "list item" + "<br />" +
-        "list item" + "<br />" +
-        "list item" + "<br />" +
-        "list item" + "<br />" +
-        "list item" + "<br />" +
-        "list item" + "<br />" +
-        "list item" + "<br />" +
-        "list item" + "<br />" +
-        "list item" + "<br />" +
-        "list item" + "<br />" +
-        "list item" + "<br />" +
-        "list item" + "<br />" +
-        "list item" + "<br />" +
-        "list item" + "<br />" +
-        "list item" + "<br />" +
-        "list item" + "<br />" +
-        "list item" + "<br />" +
-        "list item" + "<br />" +
-        "list item" + "<br />" +
-        "list item";
-
-}
-
 
