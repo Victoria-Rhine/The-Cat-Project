@@ -11,3 +11,65 @@
     "No big deal though!";
 }
 
+function BreedsFunction() {
+    document.getElementById("breeds").innerHTML =
+        "list item" + "<br />" +
+        "list item" + "<br />" +
+        "list item" + "<br />" +
+        "list item" + "<br />" +
+        "list item" + "<br />" +
+        "list item" + "<br />" +
+        "list item" + "<br />" +
+        "list item" + "<br />" +
+        "list item" + "<br />" +
+        "list item" + "<br />" +
+        "list item" + "<br />" +
+        "list item" + "<br />" +
+        "list item" + "<br />" +
+        "list item" + "<br />" +
+        "list item" + "<br />" +
+        "list item" + "<br />" +
+        "list item" + "<br />" +
+        "list item" + "<br />" +
+        "list item" + "<br />" +
+        "list item" + "<br />" +
+        "list item" + "<br />" +
+        "list item" + "<br />" +
+        "list item" + "<br />" +
+        "list item" + "<br />" +
+        "list item" + "<br />" +
+        "list item";
+}
+
+function ColorsFunction() {
+    document.getElementById("colors").innerHTML =
+        "list item" + "<br />" +
+        "list item" + "<br />" +
+        "list item" + "<br />" +
+        "list item" + "<br />" +
+        "list item" + "<br />" +
+        "list item" + "<br />" +
+        "list item" + "<br />" +
+        "list item" + "<br />" +
+        "list item" + "<br />" +
+        "list item" + "<br />" +
+        "list item" + "<br />" +
+        "list item" + "<br />" +
+        "list item" + "<br />" +
+        "list item" + "<br />" +
+        "list item" + "<br />" +
+        "list item" + "<br />" +
+        "list item" + "<br />" +
+        "list item" + "<br />" +
+        "list item" + "<br />" +
+        "list item" + "<br />" +
+        "list item" + "<br />" +
+        "list item" + "<br />" +
+        "list item" + "<br />" +
+        "list item" + "<br />" +
+        "list item" + "<br />" +
+        "list item";
+
+}
+
+

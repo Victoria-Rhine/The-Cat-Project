@@ -68,8 +68,12 @@ namespace TheCatProject.Controllers
             {
                 return HttpNotFound();
             }
+
+            var cat = (from a in db.Cats where a.ID == trait.CatID select new { a.ID, a.Name }).ToList();
+
+
             ViewBag.BreedID = new SelectList(db.Breeds, "ID", "CatBreed", trait.BreedID);
-            ViewBag.CatID = new SelectList(db.Cats, "ID", "Name", trait.CatID);
+            ViewBag.CatID = new SelectList(cat, "ID", "Name", trait.CatID);
             ViewBag.ColorID = new SelectList(db.Colors, "ID", "CatColor", trait.ColorID);
             return View(trait);
         }
