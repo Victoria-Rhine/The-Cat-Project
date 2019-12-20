@@ -15,6 +15,7 @@ namespace TheCatProject.Models
         [Required]
         [StringLength(50)]
         public string CatColor { get; set; }
+
         public virtual ICollection<Trait> Traits { get; set; }
     }
 }

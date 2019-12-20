@@ -44,7 +44,19 @@ namespace TheCatProject.DAL
             modelBuilder.Entity<Personality>()
                 .HasMany(e => e.PTags)
                 .WithRequired(e => e.Personality)
-                .HasForeignKey(e => e.PID)
+                .HasForeignKey(e => e.FirstTrait)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<Personality>()
+                .HasMany(e => e.PTags1)
+                .WithRequired(e => e.Personality1)
+                .HasForeignKey(e => e.SecondTrait)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<Personality>()
+                .HasMany(e => e.PTags2)
+                .WithRequired(e => e.Personality2)
+                .HasForeignKey(e => e.ThirdTrait)
                 .WillCascadeOnDelete(false);
         }
     }

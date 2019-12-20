@@ -44,8 +44,12 @@ CREATE TABLE [dbo].[PTags]
 (
 	[ID]			INT IDENTITY(1,1)	NOT NULL,
 	[CID]			INT					NOT NULL,
-	[PID]			INT					NOT NULL,	
+	[FirstTrait]	INT					NOT NULL,
+	[SecondTrait]	INT					NOT NULL,
+	[ThirdTrait]	INT					NOT NULL,
 	CONSTRAINT [PK_dbo.PTags] PRIMARY KEY CLUSTERED ([ID] ASC),
 	CONSTRAINT [FK_dbo.PTags_Cats_ID2] FOREIGN KEY ([CID]) REFERENCES [dbo].[Cats] ([ID]),
-	CONSTRAINT [FK_dbo.PTags_Personalities_ID] FOREIGN KEY ([PID]) REFERENCES [dbo].[Personalities] ([ID])	
+	CONSTRAINT [FK_dbo.PTags_Personalities_ID1] FOREIGN KEY ([FirstTrait]) REFERENCES [dbo].[Personalities] ([ID]),	
+	CONSTRAINT [FK_dbo.PTags_Personalities_ID2] FOREIGN KEY ([SecondTrait]) REFERENCES [dbo].[Personalities] ([ID]),
+	CONSTRAINT [FK_dbo.PTags_Personalities_ID3] FOREIGN KEY ([ThirdTrait]) REFERENCES [dbo].[Personalities] ([ID])
 );

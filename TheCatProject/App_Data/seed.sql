@@ -16,7 +16,7 @@
 	('Grey - Medium'),
 	('Grey - Dark'),
 	('Mink (Tonkinese)'),
-	('Mittens'),
+	('Mitten'),
 	('Orange'),
 	('Orange Spotted'),
 	('Orange Swirled'),
