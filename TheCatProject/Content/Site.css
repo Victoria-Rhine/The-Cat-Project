@@ -2,7 +2,7 @@
 
 body {
     padding-top: 50px;
-    padding-bottom: 20px;
+    padding-bottom: 0px;
     font-family: Roboto Slab;
     font-size: 15px;
     color: aliceblue;
@@ -108,7 +108,7 @@ table {
 }
 
 table, th, td {
-    border: 3px teal;
+    border: 3px #203A43;
     border-collapse: collapse;
 }
 
@@ -118,14 +118,14 @@ th, td {
 }
 
 table#t01 tr:nth-child(even) {
-    background-color: #d16500
+    background-color: #0F2027
 }
 
 table#t01 tr:nth-child(odd) {
-    background-color: #a08a1c;
+    background-color: #203A43
 }
 
 table#t01 th {
-    background-color: #d16500;
+    background-color: #2C5364;
     color: white;
 }

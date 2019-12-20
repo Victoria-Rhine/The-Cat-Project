@@ -129,7 +129,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\CatsController.cs" />
-    <Compile Include="Controllers\MiscController.cs" />
+    <Compile Include="Controllers\InformationController.cs" />
     <Compile Include="Controllers\PTagsController.cs" />
     <Compile Include="Controllers\TraitsController.cs" />
     <Compile Include="Global.asax.cs">
@@ -197,9 +197,8 @@
     <Content Include="Views\PTags\Create.cshtml" />
     <Content Include="Views\PTags\Details.cshtml" />
     <Content Include="Views\PTags\Edit.cshtml" />
-    <Content Include="Views\Misc\BreedInfo.cshtml" />
-    <Content Include="Views\Misc\PatternInfo.cshtml" />
-    <Content Include="Views\Misc\About.cshtml" />
+    <Content Include="Views\Information\About.cshtml" />
+    <Content Include="Views\Information\BeforeYouStart.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
