@@ -16,11 +16,12 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("The Cat Project", "Create", "Cats", new { area = "" }, new { @class = "navbar-brand" })
+
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("About The Cat Project", "About", "Information")</li>
+                    <li>@Html.ActionLink("Home", "Create", "Cats")</li>
+                    <li>@Html.ActionLink("About The Project", "About", "Information")</li>
                     <li>@Html.ActionLink("Get Started", "BeforeYouStart", "Information")</li>
                     <li>@Html.ActionLink("General Cat Stats", "Create", "Cats")</li>
                     <li>@Html.ActionLink("Top 10 Breeds", "Create", "Cats")</li>

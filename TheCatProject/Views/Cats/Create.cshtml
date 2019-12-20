@@ -1,48 +1,37 @@
 ﻿@model TheCatProject.Models.Cat
 
 @{
-    ViewBag.Title = "Home Page";
+    ViewBag.Option1 = "Female  ";
+    ViewBag.Option2 = "  Male  ";
+    ViewBag.Option3 = "N: ";
+    ViewBag.Option4 = "A: ";
 }
 
-<div class="jumbotron">
-    <h4 class="homeTitle">The Cat Project</h4>
-</div>
-
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
-
-    <h4>Enter your cat's information:</h4>
-    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-
-    <div class="row">
-        <div class="col-md-12">
-            @Html.TextBoxFor(model => model.Name, new { @class = "boxes", placeholder = "Name" })
+<div class="row">
+    <div class="col-md-6">
+        <h1 id="title">The Cat Project</h1>
+        <img src="~/Content/Images/cat7.png" class="img-fluid" width="350" height="457" />
+    </div>
+    <div class="col-md-6" id="homeform">
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            <h4>Enter your cat's name and age:</h4>
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @ViewBag.Option3 @Html.TextBoxFor(model => model.Name, new { @class = "boxes", placeholder = "Name" })
             @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-12">
-            @Html.TextBoxFor(model => model.Age, new { @class = "boxes", type = "number", min = "0", step = "0.1", placeholder = "Age", })
+            <br />
+            @ViewBag.Option4 @Html.TextBoxFor(model => model.Age, new { @class = "boxes", type = "number", min = "0", step = "0.1", placeholder = "Age", })
             @Html.ValidationMessageFor(model => model.Age, "", new { @class = "text-danger" })
-        </div>
-    </div>
-    <br />
-    <div class="row">
-        <div class="col-md-12">
-            Female: @Html.RadioButtonFor(model => model.Sex, "Female")
-            Male: @Html.RadioButtonFor(model => model.Sex, "Male")
+            <br /><br />
+            @ViewBag.Option1 @Html.RadioButtonFor(model => model.Sex, "Female")
+            @ViewBag.Option2 @Html.RadioButtonFor(model => model.Sex, "Male")
             @Html.ValidationMessageFor(model => model.Sex, "", new { @class = "text-danger" })
-        </div>
+            <br />
+            <input type="submit" value="add my cat" class="myButton" />
+        }
     </div>
-    <div class="row">
-        <div class="col-md-12">
-            <input type="submit" value="Add my Cat!" class="myButton" />
-        </div>
-    </div>
-
-}
-
+</div>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
