@@ -13,7 +13,7 @@
 
 function BreedsFunction() {
     document.getElementById("breeds").innerHTML =
-        "list item" + "<br />" +
+        "list item" + "list item" + "<br />" +
         "list item" + "<br />" +
         "list item" + "<br />" +
         "list item" + "<br />" +
