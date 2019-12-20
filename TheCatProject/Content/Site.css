@@ -16,6 +16,11 @@ body {
     font-size: 50px;
 }
 
+#pageheaders {
+    font-family: Sacramento;
+    font-size: 40px;
+}
+
 #homeform {
     background-color: #5f904b;
     padding-top: 5px;
@@ -36,6 +41,7 @@ body {
 .boxes {
     background-color: grey;
     margin-top: 10px;
+    outline-width: 0;
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -64,7 +70,7 @@ div {
 
 /* unvisited link */
 a:link {
-    color: #ffec64;
+    color: #E7717D;
 }
 
 /* visited link */
@@ -74,20 +80,20 @@ a:visited {
 
 /* mouse over link */
 a:hover {
-    color: darkslategray;
+    color: #ffec64;
 }
 
 /* selected link */
 a:active {
-    color: #ffec64;
+    color: #E7717D;
 }
 
 .myButton {
     box-shadow: inset 0px 1px 0px 0px #caefab;
-    background: linear-gradient(to bottom, #77d42a 5%, #5cb811 100%);
-    background-color: #77d42a;
+    background: linear-gradient(to bottom, #EC6F66 5%, #F3A183 100%);
+    background-color: #699644;
     border-radius: 1px;
-    border: 1px solid #268a16;
+    border: 1px solid #3b312b;
     display: inline-block;
     cursor: pointer;
     color: #545354;
@@ -97,11 +103,12 @@ a:active {
     padding: 5px 10px;
     text-decoration: none;
     margin-top: 5px;
+    outline-width: 0;
 }
 
     .myButton:hover {
-        background: linear-gradient(to bottom, #5cb811 5%, #77d42a 100%);
-        background-color: #5cb811;
+        background: linear-gradient(to bottom, #F3A183 5%, #EC6F66 100%);
+        background-color: #699644;
     }
 
     .myButton:active {
@@ -124,14 +131,14 @@ th, td {
 }
 
 table#t01 tr:nth-child(even) {
-    background-color: #0F2027
+    background-color: #665951;  
 }
 
 table#t01 tr:nth-child(odd) {
-    background-color: #203A43
+    background-color: #594a40;
 }
 
 table#t01 th {
-    background-color: #2C5364;
-    color: white;
+    background-color: #3b312b;
+    color: aliceblue;
 }
