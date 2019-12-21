@@ -1,11 +1,7 @@
 ﻿@model TheCatProject.Models.Trait
 
-@{
-    ViewBag.Title = "Edit";
-}
-
-<h3>Kitty Kat Info</h3>
-<h4>Make sure all is correct before saving!</h4>
+<h3 id="pageheaders">Displaying: </h3>
+<h5>Make sure all is correct before saving</h5>
 
 @using (Html.BeginForm())
 {
@@ -34,7 +30,7 @@
     </div>
     <div class="row">
         <div class="col-md-12">
-            <input type="submit" value="Update my Cat Traits!" class="myButton" />
+            <input type="submit" value="update my cat traits" class="myButton" />
         </div>
     </div>
 }

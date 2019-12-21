@@ -1,16 +1,10 @@
 ﻿@model IEnumerable<TheCatProject.Models.ViewModels.TraitDetailsView>
 
-@{
-    ViewBag.Title = "Details";
-}
-
-
-<h3>Kitty Kat Info</h3>
-<h4>Make sure all is correct before continuing!</h4>
+<h3 id="pageheaders">Kitty Kat Info</h3>
 
 <div class="row">
     <div class="col-md-4">
-        <button onclick="myDetailsFunction()" class="myButton">What is this page?</button>
+        <button onclick="pageDetails()" class="myButton">What is this page?</button>
         <p id="details"></p>
     </div>
     <div class="col-md-4">
@@ -35,16 +29,16 @@
                 }
             </tr>
         </table>
-        <img src="https://www.pinclipart.com/picdir/big/490-4902220_permalink-to-99-awesome-black-cat-png-ideas.png" class="img-fluid" width="350" height="241" />
+        <img src="~/Content/Images/cat1.png" class="img-fluid" width="250" height="250" />
     </div>
     
-        <div class="col-md-4">
-            <h4>@Html.ActionLink("change details", "Edit", new { id = @ViewBag.CatID })</h4>
-            <br />
-            <h4>@Html.ActionLink("all done", "Create", "Cats", null, htmlAttributes: null )</h4>
-            <br />
-            <h4><h4>@Html.ActionLink("continue", "Create", "PTags", new { myID = @ViewBag.CatID }, htmlAttributes: null)</h4></h4>
-        </div>
+    <div class="col-md-4">
+        <h4>@Html.ActionLink("change details", "Edit", new { id = @ViewBag.CatID })</h4>
+        <br />
+        <h4>@Html.ActionLink("continue", "Create", "PTags", new { myID = @ViewBag.CatID }, htmlAttributes: null)</h4>
+        <br />
+        <h4>@Html.ActionLink("all done", "Create", "Cats", null, htmlAttributes: null)</h4>
+    </div>
     
 </div>
 

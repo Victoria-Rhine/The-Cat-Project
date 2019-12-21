@@ -1,7 +1,6 @@
 ﻿function pageDetails() {
     document.getElementById("details").innerHTML =
-    "<br />" + "Edit cat details" + "<br />" +
-    "Continue to add traits" + "<br />" +
-    "All done to quit process"
+        "<br />" + "Let's make sure things look right" + "<br /><br />" +
+        "CHANGE DETAILS to edit" + "<br />" + "CONTINUE to add traits" + "<br />" + "ALL DONE to quit process"
 }
 
