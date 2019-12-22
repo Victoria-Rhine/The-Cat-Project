@@ -1,42 +1,22 @@
 ﻿@model TheCatProject.Models.PTag
 
-@{
-    ViewBag.Title = "Details";
-}
-
-<h2>Details</h2>
 
 <div>
     <h4>PTag</h4>
     <hr />
     <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Cat.Name)
-        </dt>
 
         <dd>
             @Html.DisplayFor(model => model.Cat.Name)
         </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Personality.Type)
-        </dt>
-
         <dd>
             @Html.DisplayFor(model => model.Personality.Type)
         </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Personality1.Type)
-        </dt>
-
         <dd>
-            @Html.DisplayFor(model => model.Personality1.Type)
+            @Html.DisplayFor(model => model.Personality2.Type)
         </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Personality2.Type)
-        </dt>
 
         <dd>
             @Html.DisplayFor(model => model.Personality2.Type)
@@ -46,5 +26,4 @@
 </div>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
-    @Html.ActionLink("Back to List", "Index")
 </p>

@@ -2,29 +2,40 @@
 
 @model TheCatProject.Models.PTag
 
-<h4 id="pageheaders">@ViewBag.CatName's Personality Traits</h4>
-<p>Choose 3 traits that BEST describe your cat</p>
-
+<div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-5">
+        <h4 id="pageheaders">@ViewBag.CatName's Personality Traits</h4>
+        <p>Choose 3 traits that BEST describe your cat</p>
+    </div>
+    <div class="col-md-3"></div>
+</div>
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.CID,
+         new { id = "CatID", Value = ViewBag.SelectedCat })
 
-<div class="row">
-    <div class="col-md-4">
-        @Html.DropDownList("FirstTrait", null, htmlAttributes: new { @class = "boxes" })
-        @Html.ValidationMessageFor(model => model.FirstTrait, "", new { @class = "text-danger" })
+    <div class="row">
+        <div class="col-md-4" id="homeform">
+            <h1 id="pageheaders">1st trait</h1>
+            @Html.DropDownList("FirstTrait", null, htmlAttributes: new { @class = "boxes" })
+            @Html.ValidationMessageFor(model => model.FirstTrait, "", new { @class = "text-danger" })
+        </div>
+        <div class="col-md-4" id="homeform">
+            <h1 id="pageheaders">2nd trait</h1>
+            @Html.DropDownList("SecondTrait", null, htmlAttributes: new { @class = "boxes" })
+            @Html.ValidationMessageFor(model => model.SecondTrait, "", new { @class = "text-danger" })
+        </div>
+        <div class="col-md-4" id="homeform">
+            <h1 id="pageheaders">3rd trait</h1>
+            @Html.DropDownList("ThirdTrait", null, htmlAttributes: new { @class = "boxes" })
+            @Html.ValidationMessageFor(model => model.ThirdTrait, "", new { @class = "text-danger" })
+        </div>
     </div>
-    <div class="col-md-4">
-        @Html.DropDownList("SecondTrait", null, htmlAttributes: new { @class = "boxes" })
-        @Html.ValidationMessageFor(model => model.SecondTrait, "", new { @class = "text-danger" })
-    </div>
-    <div class="col-md-4">
-        @Html.DropDownList("ThirdTrait", null, htmlAttributes: new { @class = "boxes" })
-        @Html.ValidationMessageFor(model => model.ThirdTrait, "", new { @class = "text-danger" })
-    </div>
-</div>
-
-   <input type="submit" value="add cat personality" class="myButton" />
+    <div class="col-md-4"></div>
+    <div class="col-md-4"><input type="submit" value="add cat personality" class="myButton" /></div>
+    <div class="col-md-4"><img src="~/Content/Images/cat11.png" class="img-fluid" width="250" height="324" /></div>
 }
