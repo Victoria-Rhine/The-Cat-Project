@@ -71,11 +71,13 @@ namespace TheCatProject.Controllers
                 return HttpNotFound();
             }
 
-            var cat = (from a in db.Cats where a.ID == trait.CatID select new { a.ID, a.Name }).ToList();
+            var selectedCatEdit = (from c in db.Cats where c.ID == trait.CatID select c.ID).FirstOrDefault();
+            ViewBag.SelectedCatEdit = selectedCatEdit;
 
+            var selectedCatNameEdit = (from c in db.Cats where c.ID == trait.CatID select c.Name).FirstOrDefault();
+            ViewBag.CatNameEdit = selectedCatNameEdit;
 
             ViewBag.BreedID = new SelectList(db.Breeds, "ID", "CatBreed", trait.BreedID);
-            ViewBag.CatID = new SelectList(cat, "ID", "Name", trait.CatID);
             ViewBag.ColorID = new SelectList(db.Colors, "ID", "CatColor", trait.ColorID);
             return View(trait);
         }
@@ -90,9 +92,10 @@ namespace TheCatProject.Controllers
                 db.Entry(trait).State = EntityState.Modified;
                 db.SaveChanges();
             }
+
             ViewBag.BreedID = new SelectList(db.Breeds, "ID", "CatBreed", trait.BreedID);
-            ViewBag.CatID = new SelectList(db.Cats, "ID", "Name", trait.CatID);
             ViewBag.ColorID = new SelectList(db.Colors, "ID", "CatColor", trait.ColorID);
+
             return RedirectToAction("Details", trait);
         }
 

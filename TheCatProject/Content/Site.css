@@ -49,7 +49,7 @@ body {
 
 .navbar-inverse {
     background-color: #3b312b;
-    border-color: #b0434f;
+    border-color: #E7717D;
     border-width: 3px;
     border-style: outset;
 }
@@ -96,7 +96,7 @@ a:visited {
 
 /* mouse over link */
 a:hover {
-    color:crimson;
+    color: #E7717D;
 }
 
 /* selected link */
