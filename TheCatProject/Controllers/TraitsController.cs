@@ -4,7 +4,6 @@ using System.Web.Mvc;
 using TheCatProject.DAL;
 using TheCatProject.Models;
 using System.Linq;
-using TheCatProject.Models.ViewModels;
 
 namespace TheCatProject.Controllers
 {
@@ -13,18 +12,12 @@ namespace TheCatProject.Controllers
         private CatsContext db = new CatsContext();
 
         // GET: Traits/Details/5
-        public ActionResult Details(Trait trait)
+        public ActionResult Details(Trait traits)
         {
-            var catModel = db.Cats.Join(db.Traits.Where(t => t.CatID == trait.CatID),
-                c => c.ID, t => t.CatID, (c, t) => new { c, t }).Join(db.Breeds,
-                ct => ct.t.BreedID, b => b.ID, (ct, b) => new { ct, b }).Join(db.Colors,
-                ctb => ctb.ct.t.ColorID, clr => clr.ID, (ctb, clr) => new { ctb, clr })
-                .Select(m => new TraitDetailsView { CatID = m.ctb.ct.c.ID, CatName = m.ctb.ct.c.Name,
-                BreedID = m.ctb.b.ID, CatBreed = m.ctb.b.CatBreed, ColorID = m.clr.ID, CatColor = m.clr.CatColor }).ToList();
+            Trait trait = db.Traits.Find(traits.ID);
+            ViewBag.CatID = traits.ID;
 
-            ViewBag.CatID = trait.ID;
-
-            return View(catModel);
+            return View(trait);
         }
 
         // GET: Traits/Create
@@ -35,9 +28,9 @@ namespace TheCatProject.Controllers
             var selectedCatName = (from c in db.Cats where c.ID == myID select c.Name).FirstOrDefault();
             ViewBag.SelectedCat = selectedCat;
             ViewBag.CatName = selectedCatName;
-
             ViewBag.BreedID = new SelectList(db.Breeds, "ID", "CatBreed");
             ViewBag.ColorID = new SelectList(db.Colors, "ID", "CatColor");
+
             return View();
         }
 
