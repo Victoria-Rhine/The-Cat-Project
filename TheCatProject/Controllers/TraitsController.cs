@@ -15,7 +15,8 @@ namespace TheCatProject.Controllers
         public ActionResult Details(Trait traits)
         {
             Trait trait = db.Traits.Find(traits.ID);
-            ViewBag.CatID = traits.ID;
+            var selectedCat = (from c in db.Cats where c.ID == traits.CatID select c.ID).FirstOrDefault();
+            ViewBag.SelectedCat = selectedCat;
 
             return View(trait);
         }
@@ -64,11 +65,11 @@ namespace TheCatProject.Controllers
                 return HttpNotFound();
             }
 
-            var selectedCatEdit = (from c in db.Cats where c.ID == trait.CatID select c.ID).FirstOrDefault();
-            ViewBag.SelectedCatEdit = selectedCatEdit;
+            var selectedCat = (from c in db.Cats where c.ID == trait.CatID select c.ID).FirstOrDefault();
+            ViewBag.SelectedCat = selectedCat;
 
-            var selectedCatNameEdit = (from c in db.Cats where c.ID == trait.CatID select c.Name).FirstOrDefault();
-            ViewBag.CatNameEdit = selectedCatNameEdit;
+            var selectedCatName = (from c in db.Cats where c.ID == trait.CatID select c.Name).FirstOrDefault();
+            ViewBag.CatName = selectedCatName;
 
             ViewBag.BreedID = new SelectList(db.Breeds, "ID", "CatBreed", trait.BreedID);
             ViewBag.ColorID = new SelectList(db.Colors, "ID", "CatColor", trait.ColorID);

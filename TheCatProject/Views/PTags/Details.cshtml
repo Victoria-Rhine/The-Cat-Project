@@ -1,29 +1,42 @@
 ﻿@model TheCatProject.Models.PTag
 
-
-<div>
-    <h4>PTag</h4>
-    <hr />
-    <dl class="dl-horizontal">
-
-        <dd>
-            @Html.DisplayFor(model => model.Cat.Name)
-        </dd>
-
-        <dd>
-            @Html.DisplayFor(model => model.Personality.Type)
-        </dd>
-
-        <dd>
-            @Html.DisplayFor(model => model.Personality2.Type)
-        </dd>
-
-        <dd>
-            @Html.DisplayFor(model => model.Personality2.Type)
-        </dd>
-
-    </dl>
+<h3 id="pageheaders">@Html.DisplayFor(model => model.Cat.Name)'s Personality</h3>
+<div class="row">
+    <div class="col-md-4">
+        <button onclick="pageDetails()" class="myButton">What is this page?</button>
+        <p id="details"></p>
+    </div>
+    <div class="col-md-4">
+        <table class="table" id="t01">
+            <tr>
+                <th>1st trait</th>
+                <td>
+                    @Html.DisplayFor(model => model.Personality.Type)
+                </td>
+            </tr>
+            <tr>
+                <th>2nd trait</th>
+                <td>
+                    @Html.DisplayFor(model => model.Personality1.Type)
+                </td>
+            </tr>
+            <tr>
+                <th>3rd trait</th>
+                <td>
+                    @Html.DisplayFor(model => model.Personality2.Type)
+                </td>
+            </tr>
+        </table>
+        <img src="~/Content/Images/cat1.png" class="img-fluid" width="250" height="250" />
+    </div>
+    <div class="col-md-4">
+        <h4>@Html.ActionLink("change details", "Edit", new { id = Model.ID })</h4>
+        <br />
+        <h4>@Html.ActionLink("all done", "Home", "Cats", null, htmlAttributes: null)</h4>
+    </div>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
-</p>
+
+@section scripts
+{
+    <script src="~/Scripts/main.js"></script>
+}

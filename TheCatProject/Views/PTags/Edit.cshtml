@@ -1,61 +1,44 @@
 ﻿@model TheCatProject.Models.PTag
 
-@{
-    ViewBag.Title = "Edit";
-}
-
-<h2>Edit</h2>
-
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h4>PTag</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.HiddenFor(model => model.ID)
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.CID, "CID", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("CID", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.CID, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.FirstTrait, "FirstTrait", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("FirstTrait", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.FirstTrait, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.SecondTrait, "SecondTrait", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("SecondTrait", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.SecondTrait, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.ThirdTrait, "ThirdTrait", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("ThirdTrait", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.ThirdTrait, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
-            </div>
-        </div>
+<h3 id="pageheaders">Displaying: @ViewBag.CatName</h3>
+<h5>Make sure all is correct before saving</h5>
+<div class="row">
+    <div class="col-md-4"><img src="~/Content/Images/cat15.png" class="img-fluid" width="400" height="226" /></div>
+    <div class="col-md-4">
+        @using (Html.BeginForm())
+        {
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.ID)
+            @Html.HiddenFor(model => model.CID,
+                  new { id = "CID", Value = ViewBag.SelectedCat })
+            <table class="table" id="t01">
+                <tr>
+                    <th>1st trait</th>
+                    <td>
+                        @Html.DropDownList("FirstTrait", null, htmlAttributes: new { @class = "boxes" })
+                        @Html.ValidationMessageFor(model => model.FirstTrait, "", new { @class = "text-danger" })
+                    </td>
+                </tr>
+                <tr>
+                    <th>2nd trait</th>
+                    <td>
+                        @Html.DropDownList("SecondTrait", null, htmlAttributes: new { @class = "boxes" })
+                        @Html.ValidationMessageFor(model => model.SecondTrait, "", new { @class = "text-danger" })
+                    </td>
+                </tr>
+                <tr>
+                    <th>3rd trait</th>
+                    <td>
+                        @Html.DropDownList("ThirdTrait", null, htmlAttributes: new { @class = "boxes" })
+                        @Html.ValidationMessageFor(model => model.ThirdTrait, "", new { @class = "text-danger" })
+                    </td>
+                </tr>
+            </table>
+            <input type="submit" value="update personality traits" class="myButton" />
+        }
     </div>
-}
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
 </div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
