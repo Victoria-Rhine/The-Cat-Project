@@ -1,83 +1,60 @@
-﻿@* This page serves as the home page and allows users to create a new entry *@
+﻿@* This page allows users to create a new entry *@
 
 @model TheCatProject.Models.Cat
 
 @{
-    ViewBag.Option1 = "Female ";
-    ViewBag.Option2 = "Male ";
-    ViewBag.Option3 = "N: ";
-    ViewBag.Option4 = "A: ";
+    ViewBag.Option1 = "Name";
+    ViewBag.Option2 = "Age";
+    ViewBag.Option3 = "Female";
+    ViewBag.Option4 = "Male";
 }
-
 <div class="row">
-    <div class="col-md-12">
-        <h1 id="title">The Cat Project</h1>
+    <div class="col-md-6"><img src="~/Content/Images/cat7.png" class="img-fluid" width="310" height="404"/></div>
+    <div class="col-md-4" id="homeform">
+        <h1 id="pageheaders">some basic information</h1>
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <table class="table" id="t01">
+                <tr>
+                    <th>
+                        @ViewBag.Option1
+                    </th>
+                    <td>
+                        @Html.TextBoxFor(model => model.Name, new { @class = "boxes" })
+                        @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        @ViewBag.Option2
+                    </th>
+                    <td>
+                        @Html.TextBoxFor(model => model.Age, new { @class = "boxes", type = "number", min = "0", step = "0.1" })
+                        @Html.ValidationMessageFor(model => model.Age, "", new { @class = "text-danger" })
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        @ViewBag.Option3
+                    </th>
+                    <td>
+                        @Html.RadioButtonFor(model => model.Sex, "Female")
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        @ViewBag.Option4
+                    </th>
+                    <td>@Html.RadioButtonFor(model => model.Sex, "Male")</td>
+                </tr>
+            </table>
+            @Html.ValidationMessageFor(model => model.Sex, "", new { @class = "text-danger" })
+            <input type="submit" value="add my cat" class="myButton" />
+        }
     </div>
-    </div>
-
-<div class="row">
-
-    <div class="col-md-6">
-       
-        <div id="myCarousel" class="carousel slide" data-ride="carousel" style=" width:100%; height: 270px !important;">
-            <!-- Indicators -->
-            <ol class="carousel-indicators">
-                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                <li data-target="#myCarousel" data-slide-to="1"></li>
-                <li data-target="#myCarousel" data-slide-to="2"></li>
-            </ol>
-
-            <!-- Wrapper for slides -->
-            <div class="carousel-inner">
-                <div class="item active">
-                    <img src="~/Content/Images/cat.jpg" class="img-fluid">
-                </div>
-
-                <div class="item">
-                    <img src="~/Content/Images/cat.jpg" class="img-fluid">
-                </div>
-
-                <div class="item">
-                    <img src="~/Content/Images/cat.jpg" class="img-fluid">
-                </div>
-            </div>
-
-            <!-- Left and right controls -->
-            <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-                <span class="glyphicon glyphicon-chevron-left"></span>
-                <span class="sr-only">Previous</span>
-            </a>
-            <a class="right carousel-control" href="#myCarousel" data-slide="next">
-                <span class="glyphicon glyphicon-chevron-right"></span>
-                <span class="sr-only">Next</span>
-            </a>
-        </div>
-    </div>
-
-
-    <div class="col-md-6" id="homeform">
-        <img src="~/Content/Images/cat7.png" class="img-fluid" width="150" height="195" />
-            @using (Html.BeginForm())
-            {
-                @Html.AntiForgeryToken()
-                <h4>Enter your cat's name and age:</h4>
-                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                @ViewBag.Option3 @Html.TextBoxFor(model => model.Name, new { @class = "boxes", placeholder = "Name" })
-                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
-                <br />
-                @ViewBag.Option4 @Html.TextBoxFor(model => model.Age, new { @class = "boxes", type = "number", min = "0", step = "0.1", placeholder = "Age", })
-                @Html.ValidationMessageFor(model => model.Age, "", new { @class = "text-danger" })
-                <br /><br />
-                @ViewBag.Option1 @Html.RadioButtonFor(model => model.Sex, "Female")
-                @ViewBag.Option2 @Html.RadioButtonFor(model => model.Sex, "Male")
-                @Html.ValidationMessageFor(model => model.Sex, "", new { @class = "text-danger" })
-                <br />
-                <input type="submit" value="add my cat" class="myButton" />
-            }
-    </div>
-
 </div>
-
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")

@@ -3,28 +3,24 @@
         <h1 id="title">The Cat Project</h1>
     </div>
 </div>
-
 <div class="row">
     <div class="col-md-12">
         <div id="myCarousel" class="carousel slide" data-ride="carousel" style=" width:100% !important;" data-interval="6000">
-
             <!-- Indicators -->
             <ol class="carousel-indicators">
                 <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
                 <li data-target="#myCarousel" data-slide-to="1"></li>
                 <li data-target="#myCarousel" data-slide-to="2"></li>
             </ol>
-
             <!-- Wrapper for slides -->
             <div class="carousel-inner">
                 <div class="item active">
                     <img src="~/Content/Images/cat.jpg" class="img-fluid">
                     <div class="carousel-caption">
-                        <h3>we &hearts; cats stats</h3>
+                        <h3>we &hearts; cat stats</h3>
                         <p>how it works &rarr;</p>
                     </div>
                 </div>
-
                 <div class="item">
                     <img src="~/Content/Images/sample1.png" class="img-fluid">
                     <div class="carousel-caption">
@@ -32,7 +28,6 @@
                         <p>some stuff here</p>
                     </div>
                 </div>
-
                 <div class="item">
                     <img src="~/Content/Images/sample2.png" class="img-fluid">
                     <div class="carousel-caption">
@@ -40,8 +35,7 @@
                         <p>some stuff here</p>
                     </div>
                 </div>
-            </div>
-                    
+            </div>                 
             <!-- Left and right controls -->
             <a class="left carousel-control" href="#myCarousel" data-slide="prev">
                 <span class="glyphicon glyphicon-chevron-left"></span>
@@ -51,11 +45,15 @@
                 <span class="glyphicon glyphicon-chevron-right"></span>
                 <span class="sr-only">Next</span>
             </a>
-
         </div>  
     </div>
 </div>
-
+<br />
+<div class="row">
+    <div class="col-md-12">
+        <p id="pageheaders">@Html.ActionLink("click here to start", "Create", null, htmlAttributes: null) </p>
+    </div>
+</div>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")

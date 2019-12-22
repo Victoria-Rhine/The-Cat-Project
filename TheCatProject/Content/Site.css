@@ -20,7 +20,7 @@ body {
 }
 
 .carousel-caption {
-    background-color: #b35963;
+    background-color: #b0434f;
 }
 
 /* homepage */
@@ -38,26 +38,25 @@ body {
 /* Cat Create page */
 #homeform {
     background-color: #5f904b;
-    padding-top: 20px;
+    padding-top: 10px;
     padding-bottom: 20px;
     border-style: double;
     border-width: 10px;
     border-color: #E7717D;
-    margin-top: 0px;
+    margin-top: 10px;
     margin-bottom: 10px;
 }
 
 .navbar-inverse {
     background-color: #3b312b;
-    border-color: #E7717D;
+    border-color: #b0434f;
     border-width: 3px;
     border-style: outset;
 }
 
 /* input forms */
 .boxes {
-    background-color: grey;
-    margin-top: 10px;
+    background-color: #3b312b;
     outline-width: 0;
 }
 
@@ -87,54 +86,55 @@ div {
 
 /* unvisited link */
 a:link {
-    color: #E7717D;
+    color: #ffee46;
 }
 
 /* visited link */
 a:visited {
-    color: #E7717D;
+    color: #ffee46;
 }
 
 /* mouse over link */
 a:hover {
-    color: #ffec64;
+    color:crimson;
 }
 
 /* selected link */
 a:active {
-    color: #E7717D;
+    color: #ffee46;
 }
 
 .myButton {
-    box-shadow: inset 0px 1px 0px 0px #caefab;
-    background: linear-gradient(to bottom, #EC6F66 5%, #F3A183 100%);
-    background-color: #699644;
-    border-radius: 1px;
-    border: 1px solid #3b312b;
+    box-shadow: inset 0px 1px 0px 0px #a6827e;
+    background: linear-gradient(to bottom, #e7717d 5%, #f5bac1 100%);
+    background-color: #e7717d;
+    border-radius: 3px;
+    border: 1px solid #54381e;
     display: inline-block;
     cursor: pointer;
-    color: #545354;
-    font-family: Roboto Slab;
+    color: #54381e;
+    font-family: Georgia;
     font-size: 13px;
-    font-weight: bold;
-    padding: 5px 10px;
+    padding: 6px 24px;
     text-decoration: none;
-    margin-top: 5px;
+    text-shadow: 0px 1px 0px #4d3534;
     outline-width: 0;
 }
 
     .myButton:hover {
-        background: linear-gradient(to bottom, #F3A183 5%, #EC6F66 100%);
-        background-color: #699644;
+        background: linear-gradient(to bottom, #f5bac1 5%, #e7717d 100%);
+        background-color: #f5bac1;
+        outline-width: 0;
     }
 
     .myButton:active {
         position: relative;
         top: 1px;
-    }
+        outline-width: 0;
+    }      
 
 table {
-    width: 70%;
+    width: 100%;
 }
 
 table, th, td {
