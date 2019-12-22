@@ -10,6 +10,11 @@ namespace TheCatProject.Controllers
     {
         private CatsContext db = new CatsContext();
 
+        public ActionResult Index()
+        {
+            return View();
+        }
+
         // GET: Cats/Details/5
         public ActionResult Details(Cat cat)
         {

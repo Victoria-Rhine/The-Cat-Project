@@ -11,9 +11,23 @@ body {
     background-color: #7E685A;
 }
 
+/* carousel */
+.carousel .carousel-inner img {
+    width: 100%;
+    height: 30em;
+    object-fit: cover;
+    overflow: hidden;
+}
+
+.carousel-caption {
+    background-color: #b35963;
+}
+
+/* homepage */
 #title {
     font-family: Sacramento;
-    font-size: 50px;
+    font-size: 55px;
+    margin-bottom: 15px;
 }
 
 #pageheaders {
@@ -21,14 +35,16 @@ body {
     font-size: 40px;
 }
 
+/* Cat Create page */
 #homeform {
     background-color: #5f904b;
-    padding-top: 5px;
-    padding-bottom: 10px;
+    padding-top: 20px;
+    padding-bottom: 20px;
     border-style: double;
     border-width: 10px;
     border-color: #E7717D;
-    margin-top: 40px;
+    margin-top: 0px;
+    margin-bottom: 10px;
 }
 
 .navbar-inverse {
@@ -38,6 +54,7 @@ body {
     border-style: outset;
 }
 
+/* input forms */
 .boxes {
     background-color: grey;
     margin-top: 10px;

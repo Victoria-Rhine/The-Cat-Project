@@ -196,10 +196,10 @@
     <Content Include="Views\Information\About.cshtml" />
     <Content Include="Views\Information\BeforeYouStart.cshtml" />
     <Content Include="Views\PTags\Create.cshtml" />
-    <Content Include="Views\PTags\Delete.cshtml" />
     <Content Include="Views\PTags\Details.cshtml" />
     <Content Include="Views\PTags\Edit.cshtml" />
     <Content Include="Views\PTags\Index.cshtml" />
+    <Content Include="Views\Cats\Index.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
