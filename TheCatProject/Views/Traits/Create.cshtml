@@ -1,13 +1,5 @@
 ﻿@model TheCatProject.Models.Trait
 
-<h4 id="pageheaders">@ViewBag.CatName</h4>
-
-<div class="row">
-    <div class="col-md-12">
-        <img src="~/Content/Images/cat6.png" class="img-fluid" width="250" height="188" />
-    </div>
-</div>
-
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
@@ -16,26 +8,31 @@
     @Html.HiddenFor(model => model.CatID,
           new { id = "CatID", Value = ViewBag.SelectedCat })
 
-    <div class="row">
-        <div class="col-md-12">
-            <h4 id="pageheaders">Color:</h4>
-            @Html.DropDownList("ColorID", null, htmlAttributes: new { @class = "boxes" })
-            @Html.ValidationMessageFor(model => model.ColorID, "", new { @class = "text-danger" })
-        </div>
+<div class="row">
+    <div class="col-md-12">
+        <div id="pageheaders">let's add traits for &#9886;@ViewBag.CatName&#9887;</div>
     </div>
-    <div class="row">
-        <div class="col-md-12">
-            <h4 id="pageheaders">Breed:</h4>
-            @Html.DropDownList("BreedID", null, htmlAttributes: new { @class = "boxes" })
-            @Html.ValidationMessageFor(model => model.BreedID, "", new { @class = "text-danger" })
-        </div>
+</div>
+<div class="row">
+    <div class="col-md-4">      
+        <img src="~/Content/Images/cat12.png" class="img-fluid" width="350" height="350" />
+        <input type="submit" value="add cat traits" class="myButton" />
     </div>
-    <br />
-    <div class="row">
-        <div class="col-md-12">
-            <input type="submit" value="add cat traits" class="myButton" />
-        </div>
+    <div class="col-md-4" id="homeform">
+        <h1 id="pageheaders">Color:</h1>
+        @Html.DropDownList("ColorID", null, htmlAttributes: new { @class = "boxes" })
+        @Html.ValidationMessageFor(model => model.ColorID, "", new { @class = "text-danger" })
+        <h1 id="pageheaders">Not sure?</h1>
+        <a href="http://messybeast.com/colour-charts.htm?" target="_blank">view this helpful guide</a>
     </div>
+    <div class="col-md-4" id="homeform">
+        <h1 id="pageheaders">Breed:</h1>
+        @Html.DropDownList("BreedID", null, htmlAttributes: new { @class = "boxes" })
+        @Html.ValidationMessageFor(model => model.BreedID, "", new { @class = "text-danger" })
+        <h1 id="pageheaders">Not sure?</h1>
+        <a href="https://www.purina.com/cats/cat-breeds" target="_blank">view this helpful guide</a>
+    </div>
+</div>
 }
 
 @section Scripts {

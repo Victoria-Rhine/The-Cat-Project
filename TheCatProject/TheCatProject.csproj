@@ -199,7 +199,7 @@
     <Content Include="Views\PTags\Details.cshtml" />
     <Content Include="Views\PTags\Edit.cshtml" />
     <Content Include="Views\PTags\Index.cshtml" />
-    <Content Include="Views\Cats\Index.cshtml" />
+    <Content Include="Views\Cats\Home.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

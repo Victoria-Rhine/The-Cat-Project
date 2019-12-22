@@ -10,7 +10,7 @@ namespace TheCatProject.Controllers
     {
         private CatsContext db = new CatsContext();
 
-        public ActionResult Index()
+        public ActionResult Home()
         {
             return View();
         }
