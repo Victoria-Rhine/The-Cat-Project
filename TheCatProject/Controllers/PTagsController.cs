@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
+﻿using System.Data.Entity;
 using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
 using TheCatProject.DAL;
 using TheCatProject.Models;
@@ -38,9 +34,13 @@ namespace TheCatProject.Controllers
         }
 
         // GET: PTags/Create
-        public ActionResult Create()
+        public ActionResult Create(int myID)
         {
-            ViewBag.CID = new SelectList(db.Cats, "ID", "Name");
+            var selectedCat = (from c in db.Cats where c.ID == myID select c.ID).FirstOrDefault();
+            var selectedCatName = (from c in db.Cats where c.ID == myID select c.Name).FirstOrDefault();
+            ViewBag.SelectedCat = selectedCat;
+            ViewBag.CatName = selectedCatName;
+
             ViewBag.FirstTrait = new SelectList(db.Personalities, "ID", "Type");
             ViewBag.SecondTrait = new SelectList(db.Personalities, "ID", "Type");
             ViewBag.ThirdTrait = new SelectList(db.Personalities, "ID", "Type");
