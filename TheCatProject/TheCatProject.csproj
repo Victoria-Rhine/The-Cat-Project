@@ -194,11 +194,17 @@
     <Content Include="Views\Traits\Details.cshtml" />
     <Content Include="Views\Traits\Edit.cshtml" />
     <Content Include="Views\Information\About.cshtml" />
-    <Content Include="Views\Information\BeforeYouStart.cshtml" />
     <Content Include="Views\PTags\Create.cshtml" />
     <Content Include="Views\PTags\Details.cshtml" />
     <Content Include="Views\PTags\Edit.cshtml" />
     <Content Include="Views\Cats\Home.cshtml" />
+    <Content Include="Views\Information\Guide.cshtml" />
+    <Content Include="Views\Information\Summary.cshtml" />
+    <Content Include="Views\Information\Stats.cshtml" />
+    <Content Include="Views\Information\Breeds.cshtml" />
+    <Content Include="Views\Information\Colors.cshtml" />
+    <Content Include="Views\Information\Names.cshtml" />
+    <Content Include="Views\Information\Personalities.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

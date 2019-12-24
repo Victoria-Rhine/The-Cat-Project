@@ -3,7 +3,7 @@
 <h3 id="pageheaders">@Html.DisplayFor(model => model.Cat.Name)'s Personality</h3>
 <div class="row">
     <div class="col-md-4">
-        <button onclick="pageDetails()" class="myButton">What is this page?</button>
+        <button onclick="pageDetailsEnd()" class="myButton">What is this page?</button>
         <p id="details"></p>
     </div>
     <div class="col-md-4">
@@ -27,12 +27,12 @@
                 </td>
             </tr>
         </table>
-        <img src="~/Content/Images/cat1.png" class="img-fluid" width="250" height="250" />
+        <img src="~/Content/Images/cat14.png" class="img-fluid" width="350" height="272" />
     </div>
     <div class="col-md-4">
         <h4>@Html.ActionLink("change details", "Edit", new { id = Model.ID })</h4>
         <br />
-        <h4>@Html.ActionLink("all done", "Home", "Cats", null, htmlAttributes: null)</h4>
+        <h4>@Html.ActionLink("finish " + @Html.DisplayFor(model => model.Cat.Name) + "'s entry", "Summary", "Information", null, htmlAttributes: null)</h4>
     </div>
 </div>
 
