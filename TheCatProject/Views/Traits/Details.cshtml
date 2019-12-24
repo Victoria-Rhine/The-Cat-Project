@@ -27,9 +27,9 @@
         <img src="~/Content/Images/cat1.png" class="img-fluid" width="250" height="250" />
     </div>
     <div class="col-md-4">
-        <h4>@Html.ActionLink("change details", "Edit", new { id = @Html.DisplayFor(model => model.ID) })</h4>
+        <h4>@Html.ActionLink("change details", "Edit", new { id = Html.DisplayFor(model => model.ID) })</h4>
         <br />
-        <h4>@Html.ActionLink("continue", "Create", "PTags", new { myID = @Html.DisplayFor(model => model.ID) }, htmlAttributes: null)</h4>
+        <h4>@Html.ActionLink("continue", "Create", "PTags", new { myID = @ViewBag.SelectedCat  }, htmlAttributes: null)</h4>
         <br />
         <h4>@Html.ActionLink("all done", "Home", "Cats", null, htmlAttributes: null)</h4>
     </div>
