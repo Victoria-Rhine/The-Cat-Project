@@ -7,6 +7,6 @@
 function pageDetailsEnd() {
     document.getElementById("details").innerHTML =
         "<br />" + "Let's make sure things look right" + "<br /><br />" +
-        "CHANGE DETAILS to edit" + "<br />" + "FINISH AND VIEW to see summary"
+        "CHANGE DETAILS to edit" + "<br />" + "FINISH to see cat stats"
 }
 

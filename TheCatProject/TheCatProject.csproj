@@ -130,7 +130,6 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\CatsController.cs" />
     <Compile Include="Controllers\InformationController.cs" />
-    <Compile Include="Controllers\PersonalitiesController.cs" />
     <Compile Include="Controllers\PTagsController.cs" />
     <Compile Include="Controllers\TraitsController.cs" />
     <Compile Include="Global.asax.cs">

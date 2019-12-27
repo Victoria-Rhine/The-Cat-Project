@@ -6,7 +6,6 @@ namespace TheCatProject.Controllers
     public class InformationController : Controller
     {
         private CatsContext db = new CatsContext();
-        // page to display information about the website
         public ActionResult About()
         {
             return View();

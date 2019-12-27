@@ -44,7 +44,6 @@ namespace TheCatProject.Controllers
                 db.SaveChanges();
             }
 
-            ViewBag.CID = new SelectList(db.Cats, "ID", "Name", pTag.CID);
             ViewBag.FirstTrait = new SelectList(db.Personalities, "ID", "Type", pTag.FirstTrait);
             ViewBag.SecondTrait = new SelectList(db.Personalities, "ID", "Type", pTag.SecondTrait);
             ViewBag.ThirdTrait = new SelectList(db.Personalities, "ID", "Type", pTag.ThirdTrait);
@@ -64,10 +63,10 @@ namespace TheCatProject.Controllers
                 return HttpNotFound();
             }
 
-            var selectedCat = (from c in db.Cats where c.ID == id select c.ID).FirstOrDefault();
+            var selectedCat = (from c in db.Cats where c.ID == pTag.CID select c.ID).FirstOrDefault();
             ViewBag.SelectedCat = selectedCat;
 
-            var selectedCatName = (from c in db.Cats where c.ID == id select c.Name).FirstOrDefault();
+            var selectedCatName = (from c in db.Cats where c.ID == pTag.CID select c.Name).FirstOrDefault();
             ViewBag.CatName = selectedCatName;
 
             ViewBag.FirstTrait = new SelectList(db.Personalities, "ID", "Type", pTag.FirstTrait);

@@ -30,7 +30,7 @@
         <img src="~/Content/Images/cat14.png" class="img-fluid" width="350" height="272" />
     </div>
     <div class="col-md-4">
-        <h4>@Html.ActionLink("change details", "Edit", new { id = Model.ID })</h4>
+        <h4>@Html.ActionLink("change details", "Edit", new { id = @Html.DisplayFor(model => model.ID) })</h4>
         <br />
         <h4>@Html.ActionLink("finish " + @Html.DisplayFor(model => model.Cat.Name) + "'s entry", "Summary", "Information", null, htmlAttributes: null)</h4>
     </div>
