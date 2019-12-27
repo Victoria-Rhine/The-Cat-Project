@@ -131,6 +131,7 @@
     <Compile Include="Controllers\CatsController.cs" />
     <Compile Include="Controllers\InformationController.cs" />
     <Compile Include="Controllers\PTagsController.cs" />
+    <Compile Include="Controllers\TESTPersonalitiesController.cs" />
     <Compile Include="Controllers\TraitsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -205,6 +206,11 @@
     <Content Include="Views\Information\Colors.cshtml" />
     <Content Include="Views\Information\Names.cshtml" />
     <Content Include="Views\Information\Personalities.cshtml" />
+    <Content Include="Views\TESTPersonalities\Create.cshtml" />
+    <Content Include="Views\TESTPersonalities\Delete.cshtml" />
+    <Content Include="Views\TESTPersonalities\Details.cshtml" />
+    <Content Include="Views\TESTPersonalities\Edit.cshtml" />
+    <Content Include="Views\TESTPersonalities\Index.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

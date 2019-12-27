@@ -1,53 +1,4 @@
-﻿
-@{
-    IList<string> breedList = new List<string>();
-    breedList.Add("Abyssian Cat"); breedList.Add("American Bobtail"); breedList.Add("American Curl");
-    breedList.Add("American Shorthair"); breedList.Add("American Wirehair"); breedList.Add("Balinese-Javanese");
-    breedList.Add("Bengal"); breedList.Add("Bombay"); breedList.Add("British Shorthair");
-    breedList.Add("Burmese"); breedList.Add("Chartreux"); breedList.Add("Cornish Rex");
-    breedList.Add("Devon Rex"); breedList.Add("Egyptian Mau"); breedList.Add("European Burmese");
-    breedList.Add("Himalayan"); breedList.Add("Japanese Bobtail"); breedList.Add("Korat");
-    breedList.Add("LaPerm"); breedList.Add("Maine Coon"); breedList.Add("Manx");
-    breedList.Add("Norwegian Forest"); breedList.Add("Ocicat"); breedList.Add("Oriental");
-    breedList.Add("Persian"); breedList.Add("Peterbald"); breedList.Add("Pixiebob");
-    breedList.Add("Ragamuffin"); breedList.Add("Ragdoll"); breedList.Add("Scottish Fold");
-    breedList.Add("Selkirk"); breedList.Add("Siamese"); breedList.Add("Siberian");
-    breedList.Add("Singapura"); breedList.Add("Somali"); breedList.Add("Sphynx");
-    breedList.Add("Tabby"); breedList.Add("Tonkinese"); breedList.Add("Toyger");
-    breedList.Add("Turkish"); breedList.Add("Turkish Van Cat"); breedList.Add("Unknown");
-}
-
-@{
-    IList<string> colorList = new List<string>();
-    colorList.Add("Bengal - Marbled"); colorList.Add("Bengal - Spotted"); colorList.Add("Bengal - Rosetted");
-    colorList.Add("Black"); colorList.Add("Black and Brown"); colorList.Add("Chimera");
-    colorList.Add("Chocolate"); colorList.Add("Chocolate - Patterned"); colorList.Add("Cinnamon");
-    colorList.Add("Cinammon - Patterned"); colorList.Add("Colourpoint (Himalayan)"); colorList.Add("Cream");
-    colorList.Add("Grey - Light"); colorList.Add("Grey - Medium"); colorList.Add("Grey - Dark");
-    colorList.Add("Mink (Tonkinese)"); colorList.Add("Mittens"); colorList.Add("Orange");
-    colorList.Add("Orange Spotted"); colorList.Add("Orange Swirled"); colorList.Add("Ragdoll");
-    colorList.Add("Sepia (Burmese)"); colorList.Add("Silver and Golden"); colorList.Add("Tabby - Classic (Blotched)");
-    colorList.Add("Tabby - Mackerel"); colorList.Add("Tabby - Ticked"); colorList.Add("Tortoiseshell");
-    colorList.Add("Tri Color"); colorList.Add("Tuxedo"); colorList.Add("White");
-    colorList.Add("White Spotting - High Grade"); colorList.Add("White Spotting - Low Grade"); colorList.Add("White Spotting - Medium Grade");
-}
-
-@{
-    IList<string> personalityList = new List<string>();
-    personalityList.Add("Active"); personalityList.Add("Adventurous"); personalityList.Add("Affectionate");
-    personalityList.Add("Agile"); personalityList.Add("Cuddly"); personalityList.Add("Curious");
-    personalityList.Add("Dislikes New People"); personalityList.Add("Dependent"); personalityList.Add("Dominant");
-    personalityList.Add("Friendly"); personalityList.Add("Funny"); personalityList.Add("Hunter");
-    personalityList.Add("Independent"); personalityList.Add("Indoor"); personalityList.Add("Indoor/Outdoor");
-    personalityList.Add("Intelligent"); personalityList.Add("Lap Cat"); personalityList.Add("Likes New People");
-    personalityList.Add("Loyal"); personalityList.Add("Obsessed with Wet Food"); personalityList.Add("Only Eats with Dry Food");
-    personalityList.Add("Outdoor"); personalityList.Add("Outgoing"); personalityList.Add("Playful");
-    personalityList.Add("Skittish"); personalityList.Add("Silly"); personalityList.Add("Sleepy");
-    personalityList.Add("Spontaneous"); personalityList.Add("Stretchy"); personalityList.Add("Studious");
-    personalityList.Add("Timid"); personalityList.Add("Vocal"); personalityList.Add("Water-obsessed");
-}
-
-<div class="row">
+﻿<div class="row">
     <div class="col-md-12">
         <h3 id="pageheaders">Our Guide for a Purrfect Experience</h3>
     </div>
@@ -63,7 +14,7 @@
         <img src="~/Content/Images/cat3.png" class="img-fluid" width="250" height="303" />
         <br />
         <form>
-            <button type="submit" formaction="https://www.purina.com/cats/cat-breeds" class="myButton">cat breeds guide</button>
+            <button type="submit" formaction="https://www.purina.com/cats/cat-breeds" class="myButton">cat breeds guide</button><br />
             <button type="submit" formaction="http://messybeast.com/colour-charts.htm" class="myButton">color charts guide</button>
         </form>
     </div>
@@ -72,11 +23,11 @@
             <tr>
                 <th>Cat Breeds</th>
             </tr>
-            @foreach (var item in breedList)
+            @foreach (var item in ((List<TheCatProject.Models.Breed>)ViewBag.Breeds))
             {
                 <tr>
                     <td>
-                        @item
+                        @item.CatBreed
                     </td>
                 </tr>
             }
@@ -87,11 +38,11 @@
             <tr>
                 <th>Cat Colors</th>
             </tr>
-            @foreach (var item in colorList)
+            @foreach (var item in ((List<TheCatProject.Models.Color>)ViewBag.Colors))
             {
                 <tr>
                     <td>
-                        @item
+                        @item.CatColor
                     </td>
                 </tr>
             }
@@ -102,11 +53,11 @@
             <tr>
                 <th>Personalities</th>
             </tr>
-            @foreach (var item in personalityList)
+            @foreach (var item in ((List<TheCatProject.Models.Personality>)ViewBag.Personalities))
             {
                 <tr>
                     <td>
-                        @item
+                        @item.Type
                     </td>
                 </tr>
             }

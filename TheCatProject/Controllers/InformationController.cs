@@ -1,4 +1,5 @@
-﻿using System.Web.Mvc;
+﻿using System.Linq;
+using System.Web.Mvc;
 using TheCatProject.DAL;
 
 namespace TheCatProject.Controllers
@@ -13,6 +14,10 @@ namespace TheCatProject.Controllers
 
         public ActionResult Guide()
         {
+            ViewBag.Colors = db.Colors.ToList();
+            ViewBag.Breeds = db.Breeds.ToList();
+            ViewBag.Personalities = db.Personalities.ToList();
+            
             return View();
         }
 
