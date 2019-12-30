@@ -1,1 +1,2 @@
-﻿SELECT * FROM Breeds;
+﻿SELECT * FROM Traits;
+SELECT * FROM Colors;
