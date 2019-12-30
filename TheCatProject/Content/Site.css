@@ -160,3 +160,16 @@ table#t01 th {
     background-color: #3b312b;
     color: aliceblue;
 }
+
+table#output tr:nth-child(even) {
+    background-color: #665951;
+}
+
+table#output tr:nth-child(odd) {
+    background-color: #594a40;
+}
+
+table#output th {
+    background-color: #3b312b;
+    color: aliceblue;
+}

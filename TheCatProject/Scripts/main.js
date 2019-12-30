@@ -17,7 +17,7 @@ function getStats() {
 
     selection = selectElement.value;
 
-    if (selection == "ages" || selection == "names") {
+    if (selection == "ages") {
         $.ajax({
             type: "GET",
             dataType: "json",
@@ -27,7 +27,6 @@ function getStats() {
             error: errorOnAjax
         });
     }
-
     else if (selection == "colors") {
         $.ajax({
             type: "GET",
@@ -38,7 +37,6 @@ function getStats() {
             error: errorOnAjax
         });
     }
-
     else if (selection == "breeds") {
         $.ajax({
             type: "GET",
@@ -49,7 +47,16 @@ function getStats() {
             error: errorOnAjax
         });
     }
-
+    else if (selection == "names") {
+        $.ajax({
+            type: "GET",
+            dataType: "json",
+            url: "/Information/StatsQuery",
+            data: { 'selection': selection },
+            success: showNames,
+            error: errorOnAjax
+        });
+    }
     else {
         $.ajax({
             type: "GET",
@@ -60,7 +67,6 @@ function getStats() {
             error: errorOnAjax
         });
     }
-
 };
 
 function errorOnAjax() {
@@ -68,26 +74,82 @@ function errorOnAjax() {
 }
 
 function showAges(data) {
+
+    document.getElementById("output").remove();
+    $('#outputTable').append($('<table id=\"output\">'));
+    $('#output').append($('<tr id=\"tableTr\">'));
+    $('#tableTr').append($('<th><strong><center> All Age Submissions </th>'));
+    $('#output').append($('</tr>'));
+    $('#outputTable').append($('</table>'));
+     
     for (var i = 0; i < data.length; i++) {
-        $('#output').append($('<ul>' + data[i] + '</ul>'));
+        var table = document.getElementById("output");
+        var row = table.insertRow(1);
+        var cell = row.insertCell(0);
+        cell.innerHTML = '<center>' + data[i];
     }
 }
 
 function showBreeds(data) {
+    document.getElementById("output").remove();
+    $('#outputTable').append($('<table id=\"output\">'));
+    $('#output').append($('<tr id=\"tableTr\">'));
+    $('#tableTr').append($('<th><strong><center> All Breed Submissions </th>'));
+    $('#output').append($('</tr>'));
+    $('#outputTable').append($('</table>'));
+
     for (var i = 0; i < data.length; i++) {
-        $('#output').append($('<ul>' + data[i].Breeds + '</ul>'));
-    }   
+        var table = document.getElementById("output");
+        var row = table.insertRow(1);
+        var cell = row.insertCell(0);
+        cell.innerHTML = '<center>' + data[i].Breeds;
+    }
 }
 
 function showColors(data) {
+    document.getElementById("output").remove();
+    $('#outputTable').append($('<table id=\"output\">'));
+    $('#output').append($('<tr id=\"tableTr\">'));
+    $('#tableTr').append($('<th><strong><center> All Color Submissions </th>'));
+    $('#output').append($('</tr>'));
+    $('#outputTable').append($('</table>'));
+
     for (var i = 0; i < data.length; i++) {
-        $('#output').append($('<ul>' + data[i].Colors + '</ul>'));
+        var table = document.getElementById("output");
+        var row = table.insertRow(1);
+        var cell = row.insertCell(0);
+        cell.innerHTML = '<center>' + data[i].Colors;
+    }
+}
+function showNames(data) {
+    document.getElementById("output").remove();
+    $('#outputTable').append($('<table id=\"output\">'));
+    $('#output').append($('<tr id=\"tableTr\">'));
+    $('#tableTr').append($('<th><strong><center> All Name Submissions </th>'));
+    $('#output').append($('</tr>'));
+    $('#outputTable').append($('</table>'));
+
+    for (var i = 0; i < data.length; i++) {
+        var table = document.getElementById("output");
+        var row = table.insertRow(1);
+        var cell = row.insertCell(0);
+        cell.innerHTML = '<center>' + data[i];
     }
 }
 
 function showPersonalities(data) {
+    document.getElementById("output").remove();
+    $('#outputTable').append($('<table id=\"output\">'));
+    $('#output').append($('<tr id=\"tableTr\">'));
+    $('#tableTr').append($('<th><strong><center> All Personality Submissions </th>'));
+    $('#output').append($('</tr>'));
+    $('#outputTable').append($('</table>'));
+
     for (var i = 0; i < data.length; i++) {
-        $('#output').append($('<ul>' + data[i].Personalities + '</ul>'));
+        var table = document.getElementById("output");
+        var row = table.insertRow(1);
+        var cell = row.insertCell(0);
+        cell.innerHTML = '<center>' + data[i].Personalities;
     }
 }
 
