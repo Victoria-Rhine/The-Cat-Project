@@ -1,3 +1,9 @@
-﻿<h1 id="pageheaders">Most Common Breeds</h1>
+﻿@model IEnumerable<TheCatProject.Models.Cat>
+
+<h1 id="pageheaders">Most Common Breeds</h1>
 <hr />
 
+@foreach(var item in Model)
+{
+    <p>@item.Traits</p>
+}

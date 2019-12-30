@@ -11,107 +11,120 @@ using TheCatProject.Models;
 
 namespace TheCatProject.Controllers
 {
-    public class TESTPersonalitiesController : Controller
+    public class TESTTESTController : Controller
     {
         private CatsContext db = new CatsContext();
 
-        // GET: TESTPersonalities
+        // GET: TESTTEST
         public ActionResult Index()
         {
-            return View(db.Personalities.ToList());
+            var traits = db.Traits.Include(t => t.Breed).Include(t => t.Cat).Include(t => t.Color);
+            return View(traits.ToList());
         }
 
-        // GET: TESTPersonalities/Details/5
+        // GET: TESTTEST/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Personality personality = db.Personalities.Find(id);
-            if (personality == null)
+            Trait trait = db.Traits.Find(id);
+            if (trait == null)
             {
                 return HttpNotFound();
             }
-            return View(personality);
+            return View(trait);
         }
 
-        // GET: TESTPersonalities/Create
+        // GET: TESTTEST/Create
         public ActionResult Create()
         {
+            ViewBag.BreedID = new SelectList(db.Breeds, "ID", "CatBreed");
+            ViewBag.CatID = new SelectList(db.Cats, "ID", "Name");
+            ViewBag.ColorID = new SelectList(db.Colors, "ID", "CatColor");
             return View();
         }
 
-        // POST: TESTPersonalities/Create
+        // POST: TESTTEST/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Type")] Personality personality)
+        public ActionResult Create([Bind(Include = "ID,CatID,ColorID,BreedID")] Trait trait)
         {
             if (ModelState.IsValid)
             {
-                db.Personalities.Add(personality);
+                db.Traits.Add(trait);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(personality);
+            ViewBag.BreedID = new SelectList(db.Breeds, "ID", "CatBreed", trait.BreedID);
+            ViewBag.CatID = new SelectList(db.Cats, "ID", "Name", trait.CatID);
+            ViewBag.ColorID = new SelectList(db.Colors, "ID", "CatColor", trait.ColorID);
+            return View(trait);
         }
 
-        // GET: TESTPersonalities/Edit/5
+        // GET: TESTTEST/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Personality personality = db.Personalities.Find(id);
-            if (personality == null)
+            Trait trait = db.Traits.Find(id);
+            if (trait == null)
             {
                 return HttpNotFound();
             }
-            return View(personality);
+            ViewBag.BreedID = new SelectList(db.Breeds, "ID", "CatBreed", trait.BreedID);
+            ViewBag.CatID = new SelectList(db.Cats, "ID", "Name", trait.CatID);
+            ViewBag.ColorID = new SelectList(db.Colors, "ID", "CatColor", trait.ColorID);
+            return View(trait);
         }
 
-        // POST: TESTPersonalities/Edit/5
+        // POST: TESTTEST/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Type")] Personality personality)
+        public ActionResult Edit([Bind(Include = "ID,CatID,ColorID,BreedID")] Trait trait)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(personality).State = EntityState.Modified;
+                db.Entry(trait).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(personality);
+            ViewBag.BreedID = new SelectList(db.Breeds, "ID", "CatBreed", trait.BreedID);
+            ViewBag.CatID = new SelectList(db.Cats, "ID", "Name", trait.CatID);
+            ViewBag.ColorID = new SelectList(db.Colors, "ID", "CatColor", trait.ColorID);
+            return View(trait);
         }
 
-        // GET: TESTPersonalities/Delete/5
+        // GET: TESTTEST/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Personality personality = db.Personalities.Find(id);
-            if (personality == null)
+            Trait trait = db.Traits.Find(id);
+            if (trait == null)
             {
                 return HttpNotFound();
             }
-            return View(personality);
+            return View(trait);
         }
 
-        // POST: TESTPersonalities/Delete/5
+        // POST: TESTTEST/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Personality personality = db.Personalities.Find(id);
-            db.Personalities.Remove(personality);
+            Trait trait = db.Traits.Find(id);
+            db.Traits.Remove(trait);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

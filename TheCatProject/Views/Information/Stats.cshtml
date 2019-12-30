@@ -1,2 +1,25 @@
 ﻿<h1 id="pageheaders">General Cat Stats</h1>
-<hr />
+
+<div class="row">
+    <div class="col-md-12">
+        <p>View all entries per category:</p>
+        <select id="select1" class="boxes">
+            <option value="ages">Ages</option>
+            <option value="breeds">Breeds</option>
+            <option value="names">Names</option>
+        </select>
+    </div>
+    <div class="col-md-12">
+        <br /><button onclick="getStats()" class="myButton">
+            See those cat stats
+        </button>
+    </div>
+</div>
+
+<div id="output"></div>
+
+@section scripts
+{
+    <script src="~/Scripts/main.js"></script>
+}
+
