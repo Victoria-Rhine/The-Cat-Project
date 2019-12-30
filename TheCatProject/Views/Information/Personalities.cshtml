@@ -1,3 +1,12 @@
 ﻿<h1 id="pageheaders">Most Common Personalities</h1>
 <hr />
 
+@foreach (var item in ((List<System.String>)ViewBag.TopPersonalities))
+{
+    <tr>
+        <td>
+            @item
+        </td>
+    </tr>
+}
+

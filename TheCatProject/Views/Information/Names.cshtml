@@ -1,5 +1,12 @@
-﻿@model IEnumerable<TheCatProject.Models.Cat>
-
-<h1 id="pageheaders">Most Common Names</h1>
+﻿<h1 id="pageheaders">Most Common Names</h1>
 <hr />
+
+@foreach (var item in ((List<System.String>)ViewBag.TopNames))
+{
+    <tr>
+        <td>
+            @item
+        </td>
+    </tr>
+}
 

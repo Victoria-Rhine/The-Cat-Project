@@ -107,21 +107,45 @@ namespace TheCatProject.Controllers
 
         public ActionResult Breeds()
         {
+            var topBreeds = db.Traits.Join(db.Breeds, t => t.BreedID, b => b.ID, (t, b) => new { t, b })
+                .GroupBy(tb => tb.b.CatBreed).OrderByDescending(gp => gp.Count()).Take(5).Select(g => g.Key).ToList();
+
+            ViewBag.TopBreeds = topBreeds;
             return View();
         }
 
         public ActionResult Colors()
         {
+            var topColors = db.Traits.Join(db.Colors, t => t.ColorID, c => c.ID, (t, c) => new { t, c })
+                .GroupBy(tc => tc.c.CatColor).OrderByDescending(gp => gp.Count()).Take(5).Select(g => g.Key).ToList();
+
+            ViewBag.TopColors = topColors;
             return View();
         }
 
         public ActionResult Names()
-        {          
+        {
+            var topNames = db.Cats.GroupBy(c => c.Name).OrderByDescending(gp => gp.Count()).Take(5).Select(g => g.Key).ToList();
+
+            ViewBag.TopNames = topNames;
             return View();
         }
 
         public ActionResult Personalities()
         {
+                var personalities = (from p in db.PTags join pid in db.Personalities
+                                     on p.FirstTrait equals pid.ID select new {Personalities = pid.Type}).ToList();
+                var personalities2 = (from p in db.PTags join pid in db.Personalities
+                                     on p.SecondTrait equals pid.ID select new {Personalities = pid.Type}).ToList();
+                var personalities3 = (from p in db.PTags join pid in db.Personalities
+                                     on p.ThirdTrait equals pid.ID select new {Personalities = pid.Type}).ToList();
+
+                personalities = personalities.Concat(personalities2).ToList();
+                personalities = personalities.Concat(personalities3).ToList();
+
+            var topPersonalities = personalities.GroupBy(p => p.Personalities).OrderByDescending(gp => gp.Count()).Take(5).Select(g => g.Key).ToList();
+
+            ViewBag.TopPersonalities = topPersonalities;
             return View();
         }
 
