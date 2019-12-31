@@ -36,6 +36,7 @@ namespace TheCatProject.Controllers
             if (request == "ages")
             {
                 var ages = (from c in db.Cats select c.Age).Distinct().ToList();
+
                 string jsonString = JsonConvert.SerializeObject(ages, Formatting.Indented);
                 return new ContentResult
                 {
@@ -94,6 +95,8 @@ namespace TheCatProject.Controllers
 
                 personalities = personalities.Concat(personalities2).Distinct().ToList();
                 personalities = personalities.Concat(personalities3).Distinct().ToList();
+
+                personalities = personalities.OrderBy(x => x.Personalities).ToList();
 
                 string jsonString = JsonConvert.SerializeObject(personalities, Formatting.Indented);
                 return new ContentResult

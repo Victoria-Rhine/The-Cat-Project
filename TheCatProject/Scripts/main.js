@@ -82,7 +82,7 @@ function showAges(data) {
     $('#output').append($('</tr>'));
     $('#outputTable').append($('</table>'));
      
-    for (var i = 0; i < data.length; i++) {
+    for (var i = data.length - 1; i >= 0; i--) {
         var table = document.getElementById("output");
         var row = table.insertRow(1);
         var cell = row.insertCell(0);
@@ -98,7 +98,7 @@ function showBreeds(data) {
     $('#output').append($('</tr>'));
     $('#outputTable').append($('</table>'));
 
-    for (var i = 0; i < data.length; i++) {
+    for (var i = data.length - 1; i >= 0; i--) {
         var table = document.getElementById("output");
         var row = table.insertRow(1);
         var cell = row.insertCell(0);
@@ -114,7 +114,7 @@ function showColors(data) {
     $('#output').append($('</tr>'));
     $('#outputTable').append($('</table>'));
 
-    for (var i = 0; i < data.length; i++) {
+    for (var i = data.length - 1; i >= 0; i--) {
         var table = document.getElementById("output");
         var row = table.insertRow(1);
         var cell = row.insertCell(0);
@@ -129,7 +129,7 @@ function showNames(data) {
     $('#output').append($('</tr>'));
     $('#outputTable').append($('</table>'));
 
-    for (var i = 0; i < data.length; i++) {
+    for (var i = data.length - 1; i >= 0; i--) {
         var table = document.getElementById("output");
         var row = table.insertRow(1);
         var cell = row.insertCell(0);
@@ -145,7 +145,7 @@ function showPersonalities(data) {
     $('#output').append($('</tr>'));
     $('#outputTable').append($('</table>'));
 
-    for (var i = 0; i < data.length; i++) {
+    for (var i = data.length - 1; i >= 0; i--) {
         var table = document.getElementById("output");
         var row = table.insertRow(1);
         var cell = row.insertCell(0);
