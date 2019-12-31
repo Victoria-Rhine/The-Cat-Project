@@ -11,26 +11,6 @@ body {
     background-color: #7E685A;
 }
 
-/* carousel */
-.carousel .carousel-inner img {
-    width: 100%;
-    height: 30em;
-    object-fit: cover;
-    overflow: hidden;
-}
-
-.carousel-caption {
-    background-color: #b0434f;
-}
-
-
-/* homepage */
-#title {
-    font-family: Sacramento;
-    font-size: 55px;
-    margin-bottom: 15px;
-}
-
 #pageheaders {
     font-family: Sacramento;
     font-size: 40px;
@@ -48,6 +28,19 @@ body {
     margin-bottom: 10px;
 }
 
+/* carousel customization on front page */
+.carousel .carousel-inner img {
+    width: 100%;
+    height: 30em;
+    object-fit: cover;
+    overflow: hidden;
+}
+
+.carousel-caption {
+    background-color: #b0434f;
+}
+
+/* change default navbar design */
 .navbar-inverse {
     background-color: #3b312b;
     border-color: #E7717D;
@@ -81,6 +74,8 @@ textarea {
     max-width: 280px;
 }
 
+
+/* center div contents */
 div {
     text-align: center;
 }
@@ -105,6 +100,8 @@ a:active {
     color: #ffee46;
 }
 
+
+/* clickable button design */
 .myButton {
     box-shadow: inset 0px 1px 0px 0px #a6827e;
     background: linear-gradient(to bottom, #e7717d 5%, #f5bac1 100%);
@@ -122,18 +119,20 @@ a:active {
     outline-width: 0;
 }
 
-    .myButton:hover {
-        background: linear-gradient(to bottom, #f5bac1 5%, #e7717d 100%);
-        background-color: #f5bac1;
-        outline-width: 0;
-    }
+.myButton:hover {
+    background: linear-gradient(to bottom, #f5bac1 5%, #e7717d 100%);
+    background-color: #f5bac1;
+    outline-width: 0;
+}
 
-    .myButton:active {
-        position: relative;
-        top: 1px;
-        outline-width: 0;
-    }      
+.myButton:active {
+    position: relative;
+    top: 1px;
+    outline-width: 0;
+}      
 
+
+/* table design through site */
 table {
     width: 100%;
 }
@@ -161,6 +160,8 @@ table#t01 th {
     color: aliceblue;
 }
 
+
+/* table for ajax response on stats page */
 table#output tr:nth-child(even) {
     background-color: #665951;
 }
@@ -172,4 +173,224 @@ table#output tr:nth-child(odd) {
 table#output th {
     background-color: #3b312b;
     color: aliceblue;
+}
+
+/**
+ * ----------------------------------------
+ * animation bounce-in-top
+ * home page title - The Cat Project
+ * ----------------------------------------
+ */
+
+.bounce-in-top {
+    font-family: Sacramento;
+    font-size: 55px;
+    margin-bottom: 15px;
+    -webkit-animation: bounce-in-top 2s both;
+    animation: bounce-in-top 2s both;
+}
+
+@-webkit-keyframes bounce-in-top {
+    0% {
+        -webkit-transform: translateY(-500px);
+        transform: translateY(-500px);
+        -webkit-animation-timing-function: ease-in;
+        animation-timing-function: ease-in;
+        opacity: 0;
+    }
+
+    38% {
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+        -webkit-animation-timing-function: ease-out;
+        animation-timing-function: ease-out;
+        opacity: 1;
+    }
+
+    55% {
+        -webkit-transform: translateY(-65px);
+        transform: translateY(-65px);
+        -webkit-animation-timing-function: ease-in;
+        animation-timing-function: ease-in;
+    }
+
+    72% {
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+        -webkit-animation-timing-function: ease-out;
+        animation-timing-function: ease-out;
+    }
+
+    81% {
+        -webkit-transform: translateY(-28px);
+        transform: translateY(-28px);
+        -webkit-animation-timing-function: ease-in;
+        animation-timing-function: ease-in;
+    }
+
+    90% {
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+        -webkit-animation-timing-function: ease-out;
+        animation-timing-function: ease-out;
+    }
+
+    95% {
+        -webkit-transform: translateY(-8px);
+        transform: translateY(-8px);
+        -webkit-animation-timing-function: ease-in;
+        animation-timing-function: ease-in;
+    }
+
+    100% {
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+        -webkit-animation-timing-function: ease-out;
+        animation-timing-function: ease-out;
+    }
+}
+
+@keyframes bounce-in-top {
+    0% {
+        -webkit-transform: translateY(-500px);
+        transform: translateY(-500px);
+        -webkit-animation-timing-function: ease-in;
+        animation-timing-function: ease-in;
+        opacity: 0;
+    }
+
+    38% {
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+        -webkit-animation-timing-function: ease-out;
+        animation-timing-function: ease-out;
+        opacity: 1;
+    }
+
+    55% {
+        -webkit-transform: translateY(-65px);
+        transform: translateY(-65px);
+        -webkit-animation-timing-function: ease-in;
+        animation-timing-function: ease-in;
+    }
+
+    72% {
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+        -webkit-animation-timing-function: ease-out;
+        animation-timing-function: ease-out;
+    }
+
+    81% {
+        -webkit-transform: translateY(-28px);
+        transform: translateY(-28px);
+        -webkit-animation-timing-function: ease-in;
+        animation-timing-function: ease-in;
+    }
+
+    90% {
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+        -webkit-animation-timing-function: ease-out;
+        animation-timing-function: ease-out;
+    }
+
+    95% {
+        -webkit-transform: translateY(-8px);
+        transform: translateY(-8px);
+        -webkit-animation-timing-function: ease-in;
+        animation-timing-function: ease-in;
+    }
+
+    100% {
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+        -webkit-animation-timing-function: ease-out;
+        animation-timing-function: ease-out;
+    }
+}
+
+/**
+ * ----------------------------------------
+ * animation tracking-in-contract
+ * home page link under carousel
+ * ----------------------------------------
+ */
+
+.tracking-in-contract {
+    font-family: Sacramento;
+    font-size: 40px;
+    -webkit-animation: tracking-in-contract 2s cubic-bezier(0.215, 0.610, 0.355, 1.000) 2.7s both;
+    animation: tracking-in-contract 2s cubic-bezier(0.215, 0.610, 0.355, 1.000) 2.7s both;
+}
+
+@-webkit-keyframes tracking-in-contract {
+    0% {
+        letter-spacing: 1em;
+        opacity: 0;
+    }
+
+    40% {
+        opacity: 0.6;
+    }
+
+    100% {
+        letter-spacing: normal;
+        opacity: 1;
+    }
+}
+
+@keyframes tracking-in-contract {
+    0% {
+        letter-spacing: 1em;
+        opacity: 0;
+    }
+
+    40% {
+        opacity: 0.6;
+    }
+
+    100% {
+        letter-spacing: normal;
+        opacity: 1;
+    }
+}
+
+/**
+ * ----------------------------------------
+ * animation tilt-in-fwd-tr
+ * ----------------------------------------
+ */
+
+.tilt-in-fwd-tr {
+    -webkit-animation: tilt-in-fwd-tr 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    animation: tilt-in-fwd-tr 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+@-webkit-keyframes tilt-in-fwd-tr {
+    0% {
+        -webkit-transform: rotateY(20deg) rotateX(35deg) translate(300px, -300px) skew(-35deg, 10deg);
+        transform: rotateY(20deg) rotateX(35deg) translate(300px, -300px) skew(-35deg, 10deg);
+        opacity: 0;
+    }
+
+    100% {
+        -webkit-transform: rotateY(0) rotateX(0deg) translate(0, 0) skew(0deg, 0deg);
+        transform: rotateY(0) rotateX(0deg) translate(0, 0) skew(0deg, 0deg);
+        opacity: 1;
+    }
+}
+
+@keyframes tilt-in-fwd-tr {
+    0% {
+        -webkit-transform: rotateY(20deg) rotateX(35deg) translate(300px, -300px) skew(-35deg, 10deg);
+        transform: rotateY(20deg) rotateX(35deg) translate(300px, -300px) skew(-35deg, 10deg);
+        opacity: 0;
+    }
+
+    100% {
+        -webkit-transform: rotateY(0) rotateX(0deg) translate(0, 0) skew(0deg, 0deg);
+        transform: rotateY(0) rotateX(0deg) translate(0, 0) skew(0deg, 0deg);
+        opacity: 1;
+    }
 }
