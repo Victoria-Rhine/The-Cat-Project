@@ -1,10 +1,13 @@
 ﻿<div class="row">
-    <div class="col-md-4">
-        <h1 id="title">General Cat Stats</h1>
-        <img src="~/Content/Images/cat17.png" class="img-fluid" width="400" height="376" />
+    <div class="col-md-1"></div>
+    <div class="col-md-4" style="background-color: teal; border: 3px; border-style:groove; 
+        border-color: #3b312b; margin-left: 2px; margin-right: 2px; margin-bottom: 5px;">
+        <h1 id="pageheaders">General Cat Stats</h1>
+        <img src="~/Content/Images/cat18.png" class="img-fluid" width="300" height="358" />
     </div>
-    <div class="col-md-4">
-        <h4>View all entries per category:</h4>
+    <div class="col-md-6" style="background-color: teal; border: 3px; border-style:groove;
+        border-color: #3b312b; margin-left: 2px; margin-right: 2px; margin-bottom: 5px;">
+        <h4 style="margin-top: 15px;">view all categories:</h4>
         <select id="select1" class="boxes">
             <option value="ages">Ages</option>
             <option value="breeds">Breeds</option>
@@ -13,12 +16,10 @@
             <option value="personalities">Personalities</option>
         </select>
         <br /><br />
-        <button onclick="getStats()" class="myButton">
+        <button onclick="getStats()" class="myButton" style="margin-bottom: 15px;">
             See those cat stats
         </button>
-    </div>
-    <div class="col-md-4">
-        <div id="outputTable">
+        <div id="outputTable" style="margin-bottom: 10px">
             <table id="output"></table>
         </div>
     </div>
