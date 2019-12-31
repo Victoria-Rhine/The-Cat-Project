@@ -362,6 +362,7 @@ table#output th {
 /**
  * ----------------------------------------
  * animation tilt-in-fwd-tr
+ * about page cat photo
  * ----------------------------------------
  */
 
@@ -401,6 +402,7 @@ table#output th {
 /**
  * ----------------------------------------
  * animation slide-in-left
+ * guide page header
  * ----------------------------------------
  */
 
@@ -435,4 +437,81 @@ table#output th {
         transform: translateX(0);
         opacity: 1;
     }
+}
+
+/**
+ * ----------------------------------------
+ * animation text-focus-in 
+ * ----------------------------------------
+ */
+
+.text-focus-in-4 {
+    -webkit-animation: text-focus-in 2s cubic-bezier(0.550, 0.085, 0.680, 0.530) 0.5s both;
+    animation: text-focus-in 2s cubic-bezier(0.550, 0.085, 0.680, 0.530) 0.5s both;
+}
+
+.text-focus-in-3 {
+    -webkit-animation: text-focus-in 2s cubic-bezier(0.550, 0.085, 0.680, 0.530) 1.5s both;
+    animation: text-focus-in 2s cubic-bezier(0.550, 0.085, 0.680, 0.530) 1.5s both;
+}
+
+.text-focus-in-2 {
+    -webkit-animation: text-focus-in 2s cubic-bezier(0.550, 0.085, 0.680, 0.530) 2.5s both;
+    animation: text-focus-in 2s cubic-bezier(0.550, 0.085, 0.680, 0.530) 2.5s both;
+}
+
+.text-focus-in-1 {
+    -webkit-animation: text-focus-in 2s cubic-bezier(0.550, 0.085, 0.680, 0.530) 3.5s both;
+    animation: text-focus-in 2s cubic-bezier(0.550, 0.085, 0.680, 0.530) 3.5s both;
+}
+
+.text-focus-in-0 {
+    -webkit-animation: text-focus-in 2s cubic-bezier(0.550, 0.085, 0.680, 0.530) 4.5s both;
+    animation: text-focus-in 2s cubic-bezier(0.550, 0.085, 0.680, 0.530) 4.5s both;
+}
+
+@-webkit-keyframes text-focus-in {
+    0% {
+        -webkit-filter: blur(12px);
+        filter: blur(12px);
+        opacity: 0;
+    }
+
+    100% {
+        -webkit-filter: blur(0px);
+        filter: blur(0px);
+        opacity: 1;
+    }
+}
+
+@keyframes text-focus-in {
+    0% {
+        -webkit-filter: blur(12px);
+        filter: blur(12px);
+        opacity: 0;
+    }
+
+    100% {
+        -webkit-filter: blur(0px);
+        filter: blur(0px);
+        opacity: 1;
+    }
+}
+
+
+
+
+
+.circleBase {
+    border-radius: 50%;
+    behavior: url(PIE.htc); /* remove if you don't care about IE8 */
+}
+
+.type1 {
+    width: 150px;
+    height: 150px;
+    background-color: teal;
+    border: 5px;
+    border-color: #3b312b;
+    border-style: solid;
 }
