@@ -1,45 +1,199 @@
-﻿@* This page allows users to create a new entry *@
-
-@model TheCatProject.Models.Cat
+﻿@model TheCatProject.Models.Cat
+<div class="row">
+    <div class="col-md-6"><img src="~/Content/Images/cat8.png" class="img-fluid" width="300" height="300" /></div>
+    <div class="col-md-4"><h1 id="pageheaders" class="circleBase type1" style="line-height: 250px;">Cat Stats</h1></div>
+</div>
 
 <div class="row">
-    <div class="col-md-6"><img src="~/Content/Images/cat7.png" class="img-fluid" width="310" height="404"/></div>
-    <div class="col-md-4" id="homeform">
-        <h1 id="pageheaders">some basic information</h1>
+    <div class="col-md-2"></div>
+    <div class="col-md-8" style="margin-top: 10px; background-color: #3b312b; border: groove; border-width: 3px; border-color: #E7717D;">
+
         @using (Html.BeginForm())
         {
             @Html.AntiForgeryToken()
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <h1 id="pageheaders" style="margin-top: 15px;">basic information</h1>
+            @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
             <table class="table" id="t01">
                 <tr>
-                    <th>Name</th>
+                    <th>Cat's Name</th>
+                </tr>
+                <tr>
                     <td>
-                        @Html.TextBoxFor(model => model.Name, new { @class = "boxes" })
-                        @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                        @Html.TextBoxFor(model => model.Name, new { @class = "boxes", 
+                        @style = "width:100%; border-width: 2px; border-color: #594a40; border-style: inset;" })
                     </td>
                 </tr>
+            </table>
+
+            <p>@Html.ValidationMessageFor(model => model.Age, "", new { @class = "text-danger" })</p>
+            @Html.ValidationMessageFor(model => model.Sex, "", new { @class = "text-danger" })
+            <table class="table" id="t01">
                 <tr>
                     <th>Age</th>
-                    <td>
-                        @Html.TextBoxFor(model => model.Age, new { @class = "boxes", type = "number", min = "0", max = "30"})
-                        @Html.ValidationMessageFor(model => model.Age, "", new { @class = "text-danger" })
-                    </td>
+                    <th>Female</th>
+                    <th>Male</th>
                 </tr>
                 <tr>
-                    <th>Female</th>
+                    <td>
+                        @Html.TextBoxFor(model => model.Age, new { @class = "boxes", type = "number", min = "0", max = "30", 
+                        @style = "width:50%; border-width: 2px; border-color: #594a40; border-style: inset;" })
+                    </td>
                     <td>
                         @Html.RadioButtonFor(model => model.Sex, "Female")
                     </td>
-                </tr>
-                <tr>
-                    <th>Male</th>
-                    <td>@Html.RadioButtonFor(model => model.Sex, "Male")</td>
+                    <td>
+                        @Html.RadioButtonFor(model => model.Sex, "Male")
+                    </td>
                 </tr>
             </table>
-            @Html.ValidationMessageFor(model => model.Sex, "", new { @class = "text-danger" })
-            <input type="submit" value="add my cat" class="myButton" />
+
+            <h1 id="pageheaders">breed and color</h1>
+            @Html.ValidationMessageFor(model => model.BreedID, "", new { @class = "text-danger" })
+            @Html.ValidationMessageFor(model => model.ColorID, "", new { @class = "text-danger" })
+            <table class="table" id="t01">
+                <tr>
+                    <th>Breed</th>
+                    <th>not sure?</th>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.DropDownList("BreedID", null, "-select- ", new { @class = "boxes", 
+                        @style = "width:100%; border-width: 2px; border-color: #594a40; border-style: inset; outline: 0;" })
+                    </td>
+                    <td>
+                        <a href="https://www.purina.com/cats/cat-breeds" target="_blank">breeds guide</a>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Color</th>
+                    <th>not sure?</th>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.DropDownList("ColorID", null, "-select- ", new { @class = "boxes",
+                        @style = "width:100%; border-width: 2px; border-color: #594a40; border-style: inset;" })
+                    </td>
+                    <td>
+                        <a href="http://messybeast.com/colour-charts.htm" target="_blank">colors guide</a>
+                    </td>
+                </tr>
+            </table>
+
+            <h1 id="pageheaders">play style</h1>
+            @Html.ValidationMessageFor(model => model.PlayID, "", new { @class = "text-danger" })
+            <table class="table" id="t01">
+                <tr>
+                    <th>Activity</th>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.DropDownList("PlayID", null, "-select- ", new { @class = "boxes", 
+                        @style = "width:100%; border-width: 2px; border-color: #594a40; border-style: inset;" })
+                    </td>
+                </tr>
+            </table>
+
+            <h1 id="pageheaders">lifestyle</h1>
+            @Html.ValidationMessageFor(model => model.LifestyleID, "", new { @class = "text-danger" })
+            <table class="table" id="t01">
+                <tr>
+                    <th>Environment</th>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.DropDownList("LifestyleID", null, "-select- ", new { @class = "boxes", 
+                        @style = "width:100%; border-width: 2px; border-color: #594a40; border-style: inset;" })
+                    </td>
+                </tr>
+            </table>
+
+            <h1 id="pageheaders">water</h1>
+            @Html.ValidationMessageFor(model => model.WaterID, "", new { @class = "text-danger" })
+            <table class="table" id="t01">
+                <tr>
+                    <th>Response</th>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.DropDownList("WaterID", null, "-select- ", new { @class = "boxes", 
+                        @style = "width:100%; border-width: 2px; border-color: #594a40; border-style: inset;" })
+                    </td>
+                </tr>
+            </table>
+
+            <h1 id="pageheaders">temperament</h1>
+            @Html.ValidationMessageFor(model => model.AnimalFriendID, "", new { @class = "text-danger" })
+            <table class="table" id="t01">
+                <tr>
+                    <th>With Cats</th>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.DropDownList("AnimalFriendID", null, "-select- ", new { @class = "boxes", 
+                        @style = "width:100%; border-width: 2px; border-color: #594a40; border-style: inset;" })
+                    </td>
+                </tr>
+            </table>
+
+            @Html.ValidationMessageFor(model => model.PeopleFriendID, "", new { @class = "text-danger" })
+            <table class="table" id="t01">
+                <tr>
+                    <th>With People</th>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.DropDownList("PeopleFriendID", null, "-select- ", new { @class = "boxes", 
+                        @style = "width:100%; border-width: 2px; border-color: #594a40; border-style: inset;" })
+                    </td>
+                </tr>
+            </table>
+
+            <h1 id="pageheaders">personality traits</h1>
+            <p>Which 3 traits BEST describe your cat?</p>
+            <p>@Html.ValidationMessageFor(model => model.TraitsID_1, "", new { @class = "text-danger" })</p>
+            <p>@Html.ValidationMessageFor(model => model.TraitsID_2, "", new { @class = "text-danger" })</p>
+            @Html.ValidationMessageFor(model => model.TraitsID_3, "", new { @class = "text-danger" })
+            <table class="table" id="t01">
+                <tr>
+                    <th>1st Trait</th>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.DropDownList("TraitsID_1", null, "-select- ", new { @class = "boxes", 
+                        @style = "width:100%; border-width: 2px; border-color: #594a40; border-style: inset;" })
+                    </td>
+                </tr>
+            </table>
+
+            <table class="table" id="t01">
+                <tr>
+                    <th>2nd Trait</th>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.DropDownList("TraitsID_2", null, "-select- ", new { @class = "boxes", 
+                        @style = "width:100%; border-width: 2px; border-color: #594a40; border-style: inset;" })
+                    </td>
+                </tr>
+            </table>
+
+            <table class="table" id="t01">
+                <tr>
+                    <th>3rd Trait</th>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.DropDownList("TraitsID_3", null, "-select- ", new { @class = "boxes", 
+                        @style = "width:100%; border-width: 2px; border-color: #594a40; border-style: inset;" })
+                    </td>
+                </tr>
+            </table>
+
+            <input type="submit" value="add my cat" class="myButton" style="margin-bottom: 15px; width:100%;" />
         }
     </div>
+    <div class="col-md-2"></div>
 </div>
 
 @section Scripts {

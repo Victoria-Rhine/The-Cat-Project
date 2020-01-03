@@ -1,0 +1,82 @@
+﻿@model List<System.String>
+
+@{
+    ViewBag.Breed5 = "5th - " + ViewBag.TopBreeds[4];
+    ViewBag.Breed4 = "4th - " + ViewBag.TopBreeds[3];
+    ViewBag.Breed3 = "3rd - " + ViewBag.TopBreeds[2];
+    ViewBag.Breed2 = "2nd - " + ViewBag.TopBreeds[1];
+    ViewBag.Breed1 = "1st - " + ViewBag.TopBreeds[0];
+    ViewBag.Color5 = "5th - " + ViewBag.TopColors[4];
+    ViewBag.Color4 = "4th - " + ViewBag.TopColors[3];
+    ViewBag.Color3 = "3rd - " + ViewBag.TopColors[2];
+    ViewBag.Color2 = "2nd - " + ViewBag.TopColors[1];
+    ViewBag.Color1 = "1st - " + ViewBag.TopColors[0];
+    ViewBag.Name5 = "5th - " + ViewBag.TopNames[4];
+    ViewBag.Name4 = "4th - " + ViewBag.TopNames[3];
+    ViewBag.Name3 = "3rd - " + ViewBag.TopNames[2];
+    ViewBag.Name2 = "2nd - " + ViewBag.TopNames[1];
+    ViewBag.Name1 = "1st - " + ViewBag.TopNames[0];
+    ViewBag.Trait5 = "5th - " + ViewBag.TopTraits[4];
+    ViewBag.Trait4 = "4th - " + ViewBag.TopTraits[3];
+    ViewBag.Trait3 = "3rd - " + ViewBag.TopTraits[2];
+    ViewBag.Trait2 = "2nd - " + ViewBag.TopTraits[1];
+    ViewBag.Trait1 = "1st - " + ViewBag.TopTraits[0];
+}
+
+<div class="row">
+    <div class="col-md-6">
+        <h1 id="pageheaders">Most Common Breeds</h1>
+        <p style="margin-top: 3px; font-size: 20px; background-color: #006D6F; border: 2px; border-style: solid;
+        border-color: #3b312b; margin-bottom: 0px;" class="text-focus-in-0">@ViewBag.Breed1</p>
+        <p style="margin-top: 3px; font-size: 20px; background-color: #006D6F; border: 2px; border-style: solid;
+        border-color: #3b312b; margin-bottom: 0px;" class="text-focus-in-1">@ViewBag.Breed2</p>
+        <p style="margin-top: 3px; font-size: 20px; background-color: #006D6F; border: 2px; border-style: solid;
+        border-color: #3b312b; margin-bottom: 0px;" class="text-focus-in-2">@ViewBag.Breed3</p>
+        <p style="margin-top: 3px; font-size: 20px; background-color: #006D6F; border: 2px; border-style: solid;
+        border-color: #3b312b; margin-bottom: 0px;" class="text-focus-in-3">@ViewBag.Breed4</p>
+        <p style="margin-top: 3px; font-size: 20px; background-color: #006D6F; border: 2px; border-style: solid;
+        border-color: #3b312b; margin-bottom: 0px;" class="text-focus-in-4">@ViewBag.Breed5</p>
+    </div>
+    <div class="col-md-6">
+        <h1 id="pageheaders">Most Common Colors</h1>
+        <p style="margin-top: 3px; font-size: 20px; background-color: #006D6F; border: 2px; border-style: solid;
+        border-color: #3b312b; margin-bottom: 0px;" class="text-focus-in-0">@ViewBag.Color1</p>
+        <p style="margin-top: 3px; font-size: 20px; background-color: #006D6F; border: 2px; border-style: solid;
+        border-color: #3b312b; margin-bottom: 0px;" class="text-focus-in-1">@ViewBag.Color2</p>
+        <p style="margin-top: 3px; font-size: 20px; background-color: #006D6F; border: 2px; border-style: solid;
+        border-color: #3b312b; margin-bottom: 0px;" class="text-focus-in-2">@ViewBag.Color3</p>
+        <p style="margin-top: 3px; font-size: 20px; background-color: #006D6F; border: 2px; border-style: solid;
+        border-color: #3b312b; margin-bottom: 0px;" class="text-focus-in-3">@ViewBag.Color4</p>
+        <p style="margin-top: 3px; font-size: 20px; background-color: #006D6F; border: 2px; border-style: solid;
+        border-color: #3b312b; margin-bottom: 0px;" class="text-focus-in-4">@ViewBag.Color5</p>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-6">
+        <h1 id="pageheaders">Most Common Names</h1>
+        <p style="margin-top: 3px; font-size: 20px; background-color: #006D6F; border: 2px; border-style: solid;
+        border-color: #3b312b; margin-bottom: 0px;" class="text-focus-in-4">@ViewBag.Name1</p>
+        <p style="margin-top: 3px; font-size: 20px; background-color: #006D6F; border: 2px; border-style: solid;
+        border-color: #3b312b; margin-bottom: 0px;" class="text-focus-in-3">@ViewBag.Name2</p>
+        <p style="margin-top: 3px; font-size: 20px; background-color: #006D6F; border: 2px; border-style: solid;
+        border-color: #3b312b; margin-bottom: 0px;" class="text-focus-in-2">@ViewBag.Name3</p>
+        <p style="margin-top: 3px; font-size: 20px; background-color: #006D6F; border: 2px; border-style: solid;
+        border-color: #3b312b; margin-bottom: 0px;" class="text-focus-in-1">@ViewBag.Name4</p>
+        <p style="margin-top: 3px; font-size: 20px; background-color: #006D6F; border: 2px; border-style: solid;
+        border-color: #3b312b; margin-bottom: 0px;" class="text-focus-in-0">@ViewBag.Name5</p>
+    </div>
+    <div class="col-md-6">
+        <h1 id="pageheaders">Most Common Traits</h1>
+        <p style="margin-top: 3px; font-size: 20px; background-color: #006D6F; border: 2px; border-style: solid;
+        border-color: #3b312b; margin-bottom: 0px;" class="text-focus-in-4">@ViewBag.Trait1</p>
+        <p style="margin-top: 3px; font-size: 20px; background-color: #006D6F; border: 2px; border-style: solid;
+        border-color: #3b312b; margin-bottom: 0px;" class="text-focus-in-3">@ViewBag.Trait2</p>
+        <p style="margin-top: 3px; font-size: 20px; background-color: #006D6F; border: 2px; border-style: solid;
+        border-color: #3b312b; margin-bottom: 0px;" class="text-focus-in-2">@ViewBag.Trait3</p>
+        <p style="margin-top: 3px; font-size: 20px; background-color: #006D6F; border: 2px; border-style: solid;
+        border-color: #3b312b; margin-bottom: 0px;" class="text-focus-in-1">@ViewBag.Trait4</p>
+        <p style="margin-top: 3px; font-size: 20px; background-color: #006D6F; border: 2px; border-style: solid;
+        border-color: #3b312b; margin-bottom: 0px;" class="text-focus-in-0">@ViewBag.Trait5</p>
+    </div>
+</div>
+

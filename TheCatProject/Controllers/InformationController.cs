@@ -19,7 +19,6 @@ namespace TheCatProject.Controllers
         {
             ViewBag.Colors = db.Colors.ToList();
             ViewBag.Breeds = db.Breeds.ToList();
-            ViewBag.Personalities = db.Personalities.ToList();
             
             return View();
         }
@@ -36,7 +35,6 @@ namespace TheCatProject.Controllers
             if (request == "ages")
             {
                 var ages = (from c in db.Cats select c.Age).Distinct().ToList();
-
                 string jsonString = JsonConvert.SerializeObject(ages, Formatting.Indented);
                 return new ContentResult
                 {
@@ -47,7 +45,8 @@ namespace TheCatProject.Controllers
             }
             else if (request == "breeds")
             {
-                var breeds = (from b in db.Traits join bid in db.Breeds on b.BreedID equals bid.ID 
+                var breeds = (from c in db.Cats
+                              join bid in db.Breeds on c.BreedID equals bid.ID
                               select new { Breeds = bid.CatBreed }).Distinct().ToList();
 
                 string jsonString = JsonConvert.SerializeObject(breeds, Formatting.Indented);
@@ -60,7 +59,8 @@ namespace TheCatProject.Controllers
             }
             else if (request == "colors")
             {
-                var colors = (from c in db.Traits join cid in db.Colors on c.ColorID equals cid.ID
+                var colors = (from c in db.Cats
+                              join cid in db.Colors on c.ColorID equals cid.ID
                               select new { Colors = cid.CatColor }).Distinct().ToList();
 
                 string jsonString = JsonConvert.SerializeObject(colors, Formatting.Indented);
@@ -70,7 +70,6 @@ namespace TheCatProject.Controllers
                     ContentType = "application/json",
                     ContentEncoding = System.Text.Encoding.UTF8
                 };
-
             }
             else if (request == "names")
             {
@@ -86,69 +85,63 @@ namespace TheCatProject.Controllers
             }
             else
             {
-                var personalities = (from p in db.PTags join pid in db.Personalities
-                                     on p.FirstTrait equals pid.ID select new {Personalities = pid.Type}).ToList();
-                var personalities2 = (from p in db.PTags join pid in db.Personalities
-                                     on p.SecondTrait equals pid.ID select new {Personalities = pid.Type}).ToList();
-                var personalities3 = (from p in db.PTags join pid in db.Personalities
-                                     on p.ThirdTrait equals pid.ID select new {Personalities = pid.Type}).ToList();
+                var traits = (from c in db.Cats
+                              join tid in db.Traits on c.TraitsID_1 equals tid.ID
+                              select new { Traits = tid.Type }).Distinct().ToList();
+                var traits2 = (from c in db.Cats
+                               join tid in db.Traits on c.TraitsID_2 equals tid.ID
+                               select new { Traits = tid.Type }).Distinct().ToList();
+                var traits3 = (from c in db.Cats
+                               join tid in db.Traits on c.TraitsID_3 equals tid.ID
+                               select new { Traits = tid.Type }).Distinct().ToList();
 
-                personalities = personalities.Concat(personalities2).Distinct().ToList();
-                personalities = personalities.Concat(personalities3).Distinct().ToList();
+                traits = traits.Concat(traits2).Distinct().ToList();
+                traits = traits.Concat(traits3).Distinct().ToList();
+                traits = traits.OrderBy(x => x.Traits).ToList();
 
-                personalities = personalities.OrderBy(x => x.Personalities).ToList();
-
-                string jsonString = JsonConvert.SerializeObject(personalities, Formatting.Indented);
+                string jsonString = JsonConvert.SerializeObject(traits, Formatting.Indented);
                 return new ContentResult
                 {
                     Content = jsonString,
                     ContentType = "application/json",
                     ContentEncoding = System.Text.Encoding.UTF8
                 };
+
             }
         }
 
-        public ActionResult Breeds()
+        public ActionResult TopResults()
         {
-            var topBreeds = db.Traits.Join(db.Breeds, t => t.BreedID, b => b.ID, (t, b) => new { t, b })
-                .GroupBy(tb => tb.b.CatBreed).OrderByDescending(gp => gp.Count()).Take(5).Select(g => g.Key).ToList();
-
+            var topBreeds = db.Cats.Join(db.Breeds, c => c.BreedID, b => b.ID, (c, b) => new { c, b })
+                .GroupBy(cb => cb.b.CatBreed).OrderByDescending(gp => gp.Count()).Take(5).Select(g => g.Key).ToList();
             ViewBag.TopBreeds = topBreeds;
-            return View();
-        }
 
-        public ActionResult Colors()
-        {
-            var topColors = db.Traits.Join(db.Colors, t => t.ColorID, c => c.ID, (t, c) => new { t, c })
-                .GroupBy(tc => tc.c.CatColor).OrderByDescending(gp => gp.Count()).Take(5).Select(g => g.Key).ToList();
-
+            var topColors = db.Cats.Join(db.Colors, c => c.ColorID, cl => cl.ID, (c, cl) => new { c, cl })
+                .GroupBy(ccl => ccl.cl.CatColor).OrderByDescending(gp => gp.Count()).Take(5).Select(g => g.Key).ToList();
             ViewBag.TopColors = topColors;
-            return View();
-        }
 
-        public ActionResult Names()
-        {
             var topNames = db.Cats.GroupBy(c => c.Name).OrderByDescending(gp => gp.Count()).Take(5).Select(g => g.Key).ToList();
-
             ViewBag.TopNames = topNames;
-            return View();
-        }
 
-        public ActionResult Personalities()
-        {
-                var personalities = (from p in db.PTags join pid in db.Personalities
-                                     on p.FirstTrait equals pid.ID select new {Personalities = pid.Type}).ToList();
-                var personalities2 = (from p in db.PTags join pid in db.Personalities
-                                     on p.SecondTrait equals pid.ID select new {Personalities = pid.Type}).ToList();
-                var personalities3 = (from p in db.PTags join pid in db.Personalities
-                                     on p.ThirdTrait equals pid.ID select new {Personalities = pid.Type}).ToList();
+            var traits = (from p in db.Cats
+                          join pid in db.Traits
+                          on p.TraitsID_1 equals pid.ID
+                          select new { Traits = pid.Type }).ToList();
+            var traits2 = (from p in db.Cats
+                           join pid in db.Traits
+                           on p.TraitsID_2 equals pid.ID
+                           select new { Traits = pid.Type }).ToList();
+            var traits3 = (from p in db.Cats
+                           join pid in db.Traits
+                           on p.TraitsID_3 equals pid.ID
+                           select new { Traits = pid.Type }).ToList();
 
-                personalities = personalities.Concat(personalities2).ToList();
-                personalities = personalities.Concat(personalities3).ToList();
+            traits = traits.Concat(traits2).ToList();
+            traits = traits.Concat(traits3).ToList();
 
-            var topPersonalities = personalities.GroupBy(p => p.Personalities).OrderByDescending(gp => gp.Count()).Take(5).Select(g => g.Key).ToList();
+            var topTraits = traits.GroupBy(p => p.Traits).OrderByDescending(gp => gp.Count()).Take(5).Select(g => g.Key).ToList();
 
-            ViewBag.TopPersonalities = topPersonalities;
+            ViewBag.TopTraits = topTraits;
             return View();
         }
 

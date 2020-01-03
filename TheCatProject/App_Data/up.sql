@@ -1,10 +1,15 @@
-﻿CREATE TABLE [dbo].[Cats]
+﻿CREATE TABLE [dbo].[AnimalFriendliness]
 (
-	[ID]			INT IDENTITY(1,1)		NOT NULL,
-	[Name]			NVARCHAR(50)			NOT NULL,
-	[Age]			FLOAT(50)				NOT NULL,
-	[Sex]			NVARCHAR(50)			NOT NULL,
-	CONSTRAINT [PK_dbo.Cats] PRIMARY KEY CLUSTERED ([ID] ASC)
+	[ID]			INT IDENTITY(1,1)	NOT NULL,
+	[Response]		NVARCHAR(50)		NOT NULL,	
+	CONSTRAINT [PK_dbo.AnimalFriendliness] PRIMARY KEY CLUSTERED ([ID] ASC)
+);
+
+CREATE TABLE [dbo].[PeopleFriendliness]
+(
+	[ID]			INT IDENTITY(1,1)	NOT NULL,
+	[Response]		NVARCHAR(50)		NOT NULL,	
+	CONSTRAINT [PK_dbo.PeopleFriendliness] PRIMARY KEY CLUSTERED ([ID] ASC)
 );
 
 CREATE TABLE [dbo].[Colors]
@@ -21,35 +26,59 @@ CREATE TABLE [dbo].[Breeds]
 	CONSTRAINT [PK_dbo.Breeds] PRIMARY KEY CLUSTERED ([ID] ASC)
 );
 
-CREATE TABLE [dbo].[Traits]
-(
-	[ID]				INT IDENTITY(1,1)	NOT NULL,
-	[CatID]				INT					NOT NULL,
-	[ColorID]			INT					NOT NULL,
-	[BreedID]			INT					NOT NULL,
-	CONSTRAINT [PK_dbo.Traits] PRIMARY KEY CLUSTERED ([ID] ASC),
-	CONSTRAINT [FK_dbo.Traits_Cats_ID] FOREIGN KEY ([CatID]) REFERENCES [dbo].[Cats] ([ID]),
-	CONSTRAINT [FK_dbo.Traits_Color_ID] FOREIGN KEY ([ColorID]) REFERENCES [dbo].[Colors] ([ID]),
-	CONSTRAINT [FK_dbo.Traits_Breed_ID] FOREIGN KEY ([BreedID]) REFERENCES [dbo].[Breeds] ([ID])
-);
-
-CREATE TABLE [dbo].[Personalities]
+CREATE TABLE [dbo].[Lifestyle]
 (
 	[ID]			INT IDENTITY(1,1)	NOT NULL,
 	[Type]			NVARCHAR(50)		NOT NULL,	
-	CONSTRAINT [PK_dbo.Personalities] PRIMARY KEY CLUSTERED ([ID] ASC)
+	CONSTRAINT [PK_dbo.Lifestyle] PRIMARY KEY CLUSTERED ([ID] ASC)
 );
 
-CREATE TABLE [dbo].[PTags]
+CREATE TABLE [dbo].[Play]
 (
 	[ID]			INT IDENTITY(1,1)	NOT NULL,
-	[CID]			INT					NOT NULL,
-	[FirstTrait]	INT					NOT NULL,
-	[SecondTrait]	INT					NOT NULL,
-	[ThirdTrait]	INT					NOT NULL,
-	CONSTRAINT [PK_dbo.PTags] PRIMARY KEY CLUSTERED ([ID] ASC),
-	CONSTRAINT [FK_dbo.PTags_Cats_ID2] FOREIGN KEY ([CID]) REFERENCES [dbo].[Cats] ([ID]),
-	CONSTRAINT [FK_dbo.PTags_Personalities_ID1] FOREIGN KEY ([FirstTrait]) REFERENCES [dbo].[Personalities] ([ID]),	
-	CONSTRAINT [FK_dbo.PTags_Personalities_ID2] FOREIGN KEY ([SecondTrait]) REFERENCES [dbo].[Personalities] ([ID]),
-	CONSTRAINT [FK_dbo.PTags_Personalities_ID3] FOREIGN KEY ([ThirdTrait]) REFERENCES [dbo].[Personalities] ([ID])
+	[Activity]		NVARCHAR(50)		NOT NULL,	
+	CONSTRAINT [PK_dbo.Play] PRIMARY KEY CLUSTERED ([ID] ASC)
+);
+
+CREATE TABLE [dbo].[Traits]
+(
+	[ID]			INT IDENTITY(1,1)	NOT NULL,
+	[Type]			NVARCHAR(50)		NOT NULL,	
+	CONSTRAINT [PK_dbo.Traits] PRIMARY KEY CLUSTERED ([ID] ASC)
+);
+
+CREATE TABLE [dbo].[Water]
+(
+	[ID]			INT IDENTITY(1,1)	NOT NULL,
+	[Response]		NVARCHAR(50)		NOT NULL,	
+	CONSTRAINT [PK_dbo.Water] PRIMARY KEY CLUSTERED ([ID] ASC)
+);
+
+CREATE TABLE [dbo].[Cats]
+(
+	[ID]					INT IDENTITY(1,1)		NOT NULL,
+	[Name]					NVARCHAR(50)			NOT NULL,
+	[Age]					FLOAT(50)				NOT NULL,
+	[Sex]					NVARCHAR(50)			NOT NULL,
+	[AnimalFriendID]		INT						NOT NULL,
+	[BreedID]				INT						NOT NULL,
+	[LifestyleID]			INT						NOT NULL,
+	[ColorID]				INT						NOT NULL,
+	[PlayID]				INT						NOT NULL,
+	[TraitsID_1]			INT						NOT NULL,
+	[TraitsID_2]			INT						NOT NULL,
+	[TraitsID_3]			INT						NOT NULL,
+	[PeopleFriendID]		INT						NOT NULL,
+	[WaterID]				INT						NOT NULL,
+	CONSTRAINT [PK_dbo.Cats] PRIMARY KEY CLUSTERED ([ID] ASC),
+	CONSTRAINT [FK_dbo.AnimalFriendID] FOREIGN KEY ([AnimalFriendID]) REFERENCES [dbo].[AnimalFriendliness] ([ID]),
+	CONSTRAINT [FK_dbo.BreedID] FOREIGN KEY ([BreedID]) REFERENCES [dbo].[Breeds] ([ID]),
+	CONSTRAINT [FK_dbo.LifestyleID] FOREIGN KEY ([LifestyleID]) REFERENCES [dbo].[Lifestyle] ([ID]),
+	CONSTRAINT [FK_dbo.ColorID] FOREIGN KEY ([ColorID]) REFERENCES [dbo].[Colors] ([ID]),
+	CONSTRAINT [FK_dbo.PlayID] FOREIGN KEY ([PlayID]) REFERENCES [dbo].[Play] ([ID]),
+	CONSTRAINT [FK_dbo.TraitsID_1] FOREIGN KEY ([TraitsID_1]) REFERENCES [dbo].[Traits] ([ID]),
+	CONSTRAINT [FK_dbo.TraitsID_2] FOREIGN KEY ([TraitsID_2]) REFERENCES [dbo].[Traits] ([ID]),
+	CONSTRAINT [FK_dbo.TraitsID_3] FOREIGN KEY ([TraitsID_3]) REFERENCES [dbo].[Traits] ([ID]),
+	CONSTRAINT [FK_dbo.PeopleID] FOREIGN KEY ([PeopleFriendID]) REFERENCES [dbo].[PeopleFriendliness] ([ID]),
+	CONSTRAINT [FK_dbo.WaterID] FOREIGN KEY ([WaterID]) REFERENCES [dbo].[Water] ([ID])
 );

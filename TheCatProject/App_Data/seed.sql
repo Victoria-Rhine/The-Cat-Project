@@ -1,20 +1,27 @@
-﻿INSERT INTO [dbo].[Colors](CatColor)
+﻿INSERT INTO [dbo].[AnimalFriendliness](Response)
 	VALUES
-	('Bengal - Marbled'),
-	('Bengal - Spotted'),
-	('Bengal - Rosetted'),
+	('Fearful of Other Cats'),
+	('Friendly to Other Cats'),
+	('Indifferent to Other Cats'),
+	('No Experience with Other Cats');
+
+INSERT INTO [dbo].[PeopleFriendliness](Response)
+	VALUES
+	('Friendly to New People'),
+	('Fearful of New People'),
+	('Indifferent to New People');
+
+INSERT INTO [dbo].[Colors](CatColor)
+	VALUES
+	('Bengal'),
 	('Black'),
 	('Black and Brown'),
 	('Chimera'),
 	('Chocolate'),
-	('Chocolate - Patterned'),
 	('Cinnamon'),
-	('Cinammon - Patterned'),
 	('Colourpoint (Himalayan)'),
 	('Cream'),
-	('Grey - Light'),
-	('Grey - Medium'),
-	('Grey - Dark'),
+	('Grey'),
 	('Mink (Tonkinese)'),
 	('Mittens'),
 	('Orange'),
@@ -23,19 +30,12 @@
 	('Ragdoll'),
 	('Sepia (Burmese)'),
 	('Silver and Golden'),
-	('Tabby - Classic (Blotched)'),
-	('Tabby - Mackerel'),
-	('Tabby - Non-Striped'),
-	('Tabby - Other Pattern'),
-	('Tabby - Spotted'),
-	('Tabby - Ticked'),	
+	('Tabby'),	
 	('Tortoiseshell'),
 	('Tri Color'),
-	('Tuxedos'),
+	('Tuxedo'),
 	('White'),
-	('White Spotting - High Grade'),
-	('White Spotting - Low Grade'),
-	('White Spotting - Medium Grade');
+	('White Spotting');
 
 INSERT INTO [dbo].[Breeds](CatBreed)
 	VALUES
@@ -75,56 +75,74 @@ INSERT INTO [dbo].[Breeds](CatBreed)
 	('Singapura'),
 	('Somali'),
 	('Sphynx'),
-	('Tabby'),
 	('Tonkinese'),
 	('Toyger'),
 	('Turkish'),
 	('Turkish Van Cat'),
 	('Unknown');
 
-INSERT INTO [dbo].[Personalities](Type)
+INSERT INTO [dbo].[Lifestyle](Type)
+	VALUES
+	('Indoor'),
+	('Outdoor'),
+	('Indoor and Outdoor');
+
+INSERT INTO [dbo].[Traits](Type)
 	VALUES
 	('Active'),
 	('Adventurous'),
 	('Affectionate'),
 	('Agile'),
-	('All About Boxes'),
-	('Bird Watcher'),
-	('Couch Cat'),
+	('Anxious'),
+	('Bullying'),
+	('Clumsy'),
 	('Cuddly'),
 	('Curious'),
-	('Dislikes New People'),
+	('Gentle'),
 	('Dependent'),
+	('Defiant'),
 	('Dominant'),
-	('Enjoys Water'),
-	('Fearless'),
-	('Friendly'),
+	('Food-Motivated'),
 	('Funny'),
-	('Hates Water'),
-	('Hunter'),
-	('Hyper'),
+	('Greedy'),
+	('Impulsive'),
 	('Independent'),
-	('Indoor'),
-	('Indoor/Outdoor'),
+	('Jealous'),
 	('Intelligent'),
-	('Lap Cat'),
-	('Likes New People'),
+	('Irritable'),
 	('Loyal'),
-	('Outdoor'),
 	('Outgoing'),
 	('Playful'),
+	('Predictable'),
 	('Quiet'),
 	('Skittish'),
+	('Shy'),
 	('Silly'),
-	('Sleepy'),
+	('Solitary'),
 	('Spontaneous'),
-	('Stretchy'),
-	('Studious'),
 	('Timid'),
 	('Troublemaker'),
-	('Vocal'),
-	('Water-obsessed'),
-	('Wet Food Obsessed'),
-	('Window Cat'),
-	('Dry Food Obsessed');	
+	('Trusting'),
+	('Vocal');
+
+INSERT INTO [dbo].[Play](Activity)
+	VALUES
+	('All About Boxes'),
+	('Bird Watching'),
+	('Climbing'),
+	('Couch Napping'),
+	('Hunting'),
+	('Lap Sitting'),
+	('Laser Chasing'),
+	('Running'),
+	('Playing with Toys'),
+	('Window Watching');
+
+INSERT INTO [dbo].[Water](Response)
+	VALUES
+	('Hates Water'),
+	('Loves Water'),
+	('Plays with Water'),
+	('Indifferent to Water');
+	
 

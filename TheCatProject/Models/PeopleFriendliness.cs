@@ -6,10 +6,11 @@ namespace TheCatProject.Models
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    public partial class Color
+    [Table("PeopleFriendliness")]
+    public partial class PeopleFriendliness
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Color()
+        public PeopleFriendliness()
         {
             Cats = new HashSet<Cat>();
         }
@@ -18,7 +19,7 @@ namespace TheCatProject.Models
 
         [Required]
         [StringLength(50)]
-        public string CatColor { get; set; }
+        public string Response { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Cat> Cats { get; set; }

@@ -63,7 +63,7 @@ function getStats() {
             dataType: "json",
             url: "/Information/StatsQuery",
             data: { 'selection': selection },
-            success: showPersonalities,
+            success: showTraits,
             error: errorOnAjax
         });
     }
@@ -137,11 +137,11 @@ function showNames(data) {
     }
 }
 
-function showPersonalities(data) {
+function showTraits(data) {
     document.getElementById("output").remove();
     $('#outputTable').append($('<table id=\"output\">'));
     $('#output').append($('<tr id=\"tableTr\">'));
-    $('#tableTr').append($('<th><strong><center> All Personality Submissions </th>'));
+    $('#tableTr').append($('<th><strong><center> All Traits Submissions </th>'));
     $('#output').append($('</tr>'));
     $('#outputTable').append($('</table>'));
 
@@ -149,7 +149,7 @@ function showPersonalities(data) {
         var table = document.getElementById("output");
         var row = table.insertRow(1);
         var cell = row.insertCell(0);
-        cell.innerHTML = '<center>' + data[i].Personalities;
+        cell.innerHTML = '<center>' + data[i].Traits;
     }
 }
 

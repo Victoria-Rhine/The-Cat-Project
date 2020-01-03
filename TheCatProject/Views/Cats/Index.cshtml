@@ -1,0 +1,105 @@
+﻿@model IEnumerable<TheCatProject.Models.Cat>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.AnimalFriendliness.Response)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Breed.CatBreed)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Color.CatColor)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Lifestyle.Type)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PeopleFriendliness.Response)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Play.Activity)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Trait.Type)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Trait1.Type)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Trait2.Type)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Water.Response)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Age)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sex)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.AnimalFriendliness.Response)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Breed.CatBreed)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Color.CatColor)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Lifestyle.Type)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PeopleFriendliness.Response)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Play.Activity)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Trait.Type)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Trait1.Type)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Trait2.Type)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Water.Response)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Age)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sex)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>
