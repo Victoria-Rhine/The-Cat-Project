@@ -2,6 +2,7 @@
 	VALUES
 	('Fearful of Other Cats'),
 	('Friendly to Other Cats'),
+	('Hostile to Other Cats'),
 	('Indifferent to Other Cats'),
 	('No Experience with Other Cats');
 
@@ -9,6 +10,7 @@ INSERT INTO [dbo].[PeopleFriendliness](Response)
 	VALUES
 	('Friendly to New People'),
 	('Fearful of New People'),
+	('Hostile Toward New People'),
 	('Indifferent to New People');
 
 INSERT INTO [dbo].[Colors](CatColor)
@@ -39,6 +41,9 @@ INSERT INTO [dbo].[Colors](CatColor)
 
 INSERT INTO [dbo].[Breeds](CatBreed)
 	VALUES
+	('Domestic Shorthair'),
+	('Domestic Medium Hair'),
+	('Domestic Long Hair'),
 	('Abyssian Cat'),
 	('American Bobtail'),
 	('American Curl'),
@@ -128,21 +133,23 @@ INSERT INTO [dbo].[Traits](Type)
 INSERT INTO [dbo].[Play](Activity)
 	VALUES
 	('All About Boxes'),
+	('All About Imagination'),
 	('Bird Watching'),
+	('Chasing After Balls'),
 	('Climbing'),
-	('Couch Napping'),
 	('Hunting'),
-	('Lap Sitting'),
 	('Laser Chasing'),
 	('Running'),
+	('Play Fighting'),
 	('Playing with Toys'),
+	('Playing with Strings'),
+	('Wandering Around'),
 	('Window Watching');
 
 INSERT INTO [dbo].[Water](Response)
 	VALUES
 	('Hates Water'),
-	('Loves Water'),
-	('Plays with Water'),
+	('Loves/Plays with Water'),
 	('Indifferent to Water');
 	
 
