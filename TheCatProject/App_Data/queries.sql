@@ -1,1 +1,1 @@
-﻿SELECT * FROM Traits;
+﻿SELECT * FROM Cats;

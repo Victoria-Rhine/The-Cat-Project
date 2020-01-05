@@ -110,7 +110,7 @@ namespace TheCatProject.Controllers
             }
         }
 
-        public ActionResult TopResults()
+        public ActionResult TopResults()    
         {
             var topBreeds = db.Cats.Join(db.Breeds, c => c.BreedID, b => b.ID, (c, b) => new { c, b })
                 .GroupBy(cb => cb.b.CatBreed).OrderByDescending(gp => gp.Count()).Take(5).Select(g => g.Key).ToList();
@@ -142,6 +142,11 @@ namespace TheCatProject.Controllers
             var topTraits = traits.GroupBy(p => p.Traits).OrderByDescending(gp => gp.Count()).Take(5).Select(g => g.Key).ToList();
 
             ViewBag.TopTraits = topTraits;
+            return View();
+        }
+
+        public ActionResult MoreStats()
+        {
             return View();
         }
 

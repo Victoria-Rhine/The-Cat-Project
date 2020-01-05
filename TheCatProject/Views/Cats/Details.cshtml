@@ -1,122 +1,60 @@
 ﻿@model TheCatProject.Models.Cat
 
-@{
-    ViewBag.Title = "Details";
-}
+<h2>@Html.DisplayFor(model => model.Name)'s Information</h2>
 
-<h2>Details</h2>
+<div class="row">
 
-<div>
-    <h4>Cat</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.AnimalFriendliness.Response)
-        </dt>
+    <div class="col-md-12">
+        <table class="table" id="t01">
+            <tr>
+                <th>Breed</th>
+                <td>@Html.DisplayFor(model => model.Breed.CatBreed)</td>
+            </tr>
+            <tr>
+                <th>Color</th>
+                <td>@Html.DisplayFor(model => model.Color.CatColor)</td>
+            </tr>
+            <tr>
+                <th>Age</th>
+                <td>@Html.DisplayFor(model => model.Age)</td>
+            </tr>
+            <tr>
+                <th>Sex</th>
+                <td>@Html.DisplayFor(model => model.Sex)</td>
+            </tr>
+            <tr>
+                <th>Play Style</th>
+                <td>@Html.DisplayFor(model => model.Play.Activity)</td>
+            </tr>
+            <tr>
+                <th>Lifestyle</th>
+                <td>@Html.DisplayFor(model => model.Lifestyle.Type)</td>
+            </tr>
+            <tr>
+                <th>Trait 1</th>
+                <td>@Html.DisplayFor(model => model.Trait.Type)</td>
+            </tr>
+            <tr>
+                <th>Trait 2</th>
+                <td>@Html.DisplayFor(model => model.Trait1.Type)</td>
+            </tr>
+            <tr>
+                <th>Trait 3</th>
+                <td>@Html.DisplayFor(model => model.Trait2.Type)</td>
+            </tr>
+            <tr>
+                <th>Temperament - People</th>
+                <td>@Html.DisplayFor(model => model.PeopleFriendliness.Response)</td>
+            </tr>
+            <tr>
+                <th>Temperament - Animals</th>
+                <td>@Html.DisplayFor(model => model.AnimalFriendliness.Response)</td>
+            </tr>
+            <tr>
+                <th>Water</th>
+                <td>@Html.DisplayFor(model => model.Water.Response)</td>
+            </tr>
+        </table>
+    </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.AnimalFriendliness.Response)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Breed.CatBreed)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Breed.CatBreed)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Color.CatColor)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Color.CatColor)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Lifestyle.Type)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Lifestyle.Type)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.PeopleFriendliness.Response)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.PeopleFriendliness.Response)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Play.Activity)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Play.Activity)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Trait.Type)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Trait.Type)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Trait1.Type)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Trait1.Type)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Trait2.Type)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Trait2.Type)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Water.Response)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Water.Response)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Age)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Age)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Sex)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Sex)
-        </dd>
-
-    </dl>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>

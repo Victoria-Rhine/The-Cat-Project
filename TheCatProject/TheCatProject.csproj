@@ -200,11 +200,9 @@
     <Content Include="Views\Information\Stats.cshtml" />
     <Content Include="Views\Information\TopResults.cshtml" />
     <Content Include="Views\Cats\Create.cshtml" />
-    <Content Include="Views\Cats\Delete.cshtml" />
     <Content Include="Views\Cats\Details.cshtml" />
-    <Content Include="Views\Cats\Edit.cshtml" />
-    <Content Include="Views\Cats\Index.cshtml" />
     <Content Include="Views\Cats\Home.cshtml" />
+    <Content Include="Views\Information\MoreStats.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
