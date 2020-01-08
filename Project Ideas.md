@@ -10,7 +10,6 @@ An app to find like minded individuals attending the same festival that you alre
 personalized profiles to tailor fit the users experience with event and friend matching.
 
 - **Tutoring Connection**   
-A tutoring app for the Western Oregon University Computer Science Department.   
-Features include real-time schedules, interface for online tutoring, chat capabilities, online     
-scheduling, sessions tracking, connection between tutors and professors for grading, and information for professors to evaluate   
-student needs.   
+A tutoring app for the Western Oregon University Computer Science Department.  
+Features include real-time schedules, interface for online tutoring, chat capabilities, online scheduling 
+sessions tracking, connection between tutors and professors for grading, and information for professors to evaluate student needs. 
