@@ -1,4 +1,4 @@
-## **Team Project Ideas**
+## **Team Project Ideas**   
 
 - **Finance Tracker** 
 An app that scans receipts and allows users to track their finances.  
