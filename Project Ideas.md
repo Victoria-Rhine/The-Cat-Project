@@ -11,5 +11,6 @@ personalized profiles to tailor fit the users experience with event and friend m
 
 - **Tutoring Connection**   
 A tutoring app for the Western Oregon University Computer Science Department.   
-Features include real-time schedules, interface for online tutoring sessions, chat capabilities, hours tracking, online scheduling,    
-sessions tracking, connection between tutors and professors for grading, and information for professors to evaluate student needs.   
+Features include real-time schedules, interface for online tutoring, chat capabilities, online     
+scheduling, sessions tracking, connection between tutors and professors for grading, and information for professors to evaluate   
+student needs.   
