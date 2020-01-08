@@ -2,8 +2,8 @@
 
 - **Finance Tracker** 
 An app that scans receipts and allows users to track their finances.  
-Features include receipt scanning, manual input capabilities for the user, graphical tracking of finances,  
-spending reports, bill tracking, system to organize information for tax filings.  
+Features include receipt scanning, manual input capabilities for the user, graphical tracking 
+of finances,spending reports, bill tracking, system to organize information for tax filing. 
 
 - **Festival Friend Finder**    
 An app to find like minded individuals attending the same festival that you already have tickets for, but may not have a group to go with.  Features include sorting through upcoming festivals of a specific genre, joining forums dedicated to each individual event and 
