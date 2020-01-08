@@ -1,0 +1,10 @@
+## **Team Name**
+Khronos
+
+## **Motto**
+All in Good Time
+
+## **Members**
+- Brandon Linton
+- Maksim Stoyanov
+- Victoria Rhine
