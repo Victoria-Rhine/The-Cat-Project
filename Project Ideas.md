@@ -1,7 +1,7 @@
 ## **Team Project Ideas**   
 
 - **Finance Tracker**   
-*An app that and allows users to track their finances and receipts*.   
+*An app that allows users to track their finances and receipts*.   
 Features include receipt scanning, manual input capabilities for the user, graphical tracking 
 of finances, spending reports, bill tracking, system to organize information for tax filing. 
 
