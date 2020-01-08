@@ -1,14 +1,14 @@
 ## **Team Project Ideas**   
 
 - **Finance Tracker**   
-*An app that scans receipts and allows users to track their finances*.   
-  Features include receipt scanning, manual input capabilities for the user, graphical tracking 
+*An app that and allows users to track their finances and receipts*.   
+Features include receipt scanning, manual input capabilities for the user, graphical tracking 
 of finances, spending reports, bill tracking, system to organize information for tax filing. 
 
 - **Festival Friend Finder**    
-*An app to find like minded individuals attending the same festival*.   
-Features include sorting through upcoming festivals of a specific genre, joining forums dedicated to each individual event and 
-personalized profiles to tailor fit the users experience with event and friend matching.
+*An app to find like-minded individuals attending the same festival*.   
+Features include sorting through upcoming festivals of a specific genre, joining forums dedicated to individual events and 
+personalized profiles to tailor fit the user's experience with event and friend matching.
 
 - **Tutoring Connection**   
 *A tutoring app for the Western Oregon University Computer Science Department*.  
